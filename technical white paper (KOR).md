@@ -153,16 +153,56 @@ Large scale applications need to divide the workload across multiple CPUs and co
 # 합의 알고리즘 (DPOS)
 
 EOS.IO software utilizes the only decentralized consensus algorithm capable of meeting the performance requirements of applications on the blockchain, [Delegated Proof of Stake (DPOS)](https://steemit.com/dpos/@dantheman/dpos-consensus-algorithm-this-missing-white-paper). Under this algorithm, those who hold tokens on a blockchain may select block producers through a continuous approval voting system and anyone may choose to participate in block production and will be given an opportunity to produce blocks proportional to the total votes they have received relative to all other producers. For private blockchains the management will use the tokens to add and remove IT staff.
+EOS.IO 소프트웨어는 블록체인 애플리케이션의 성능 요구사항을 충족할 수 있는 유일한 탈중앙화 합의 알고리즘인 [지분 위임 증명(DPOS; Deleteged Proof-Of-Stake)](https://steemit.com/dpos/@dantheman/dpos-consensus-algorithm-this-missing-white-paper)을 사용합니다. 이 알고리즘은 다음과 같이 동작합니다.
+
+those who hold tokens on a blockchain may select block producers through a continuous approval voting system
+1. 블록체인의 토큰을 보유한 사람은 상시 운영되는 후보 승인 투표 시스템을 이용하여 블록 생산자(block producer)를 선출합니다.
+anyone may choose to participate in block production 
+2. 블록 생산자는 누구나 될 수 있습니다.
+will be given an opportunity to produce blocks proportional to the total votes they have received relative to all other producers
+3. 본인이 받은 투표 수와 다른 생산자가 받은 전체 투표 수의 비율에 비례하여 블록을 생산할 기회가 주어집니다.
+For private blockchains the management will use the tokens to add and remove IT staff.
+4. 프라이빗 블록체인에서 관리자는 토큰을 사용하여 IT 직원을 추가하거나 제거할 수 있습니다.
 
 The EOS.IO software enables blocks to be produced exactly every 3 seconds and exactly one producer is authorized to produce a block at any given point in time. If the block is not produced at the scheduled time then the block for that time slot is skipped.  When one or more blocks are skipped, there is a 6 or more second gap in the blockchain.
 
+The EOS.IO software enables blocks to be produced exactly every 3 seconds
+4. EOS.IO 소프트웨어는 정확히 매 3초마다 블록을 생산될 수 있게 합니다.
+exactly one producer is authorized to produce a block at any given point in time.
+5. 매 시점마다 오직 한명의 블록 생산자만이 블록을 생성하도록 허가됩니다.
+If the block is not produced at the scheduled time then the block for that time slot is skipped.
+6. 만약 정해진 시간에 블록이 생산되지 않을 경우 해당 시점의 블록은 무시됩니다.
+When one or more blocks are skipped, there is a 6 or more second gap in the blockchain.
+7. 만약 1개 혹은 그 이상의 블록이 무시될 경우 블록체인에는 6초 혹은 그 이상의 간격(gap)이 나타납니다.
+
 Using the EOS.IO software blocks are produced in rounds of 21. At the start of each round 21 unique block producers are chosen. The top 20 by total approval are automatically chosen every round and the last producer is chosen proportional to their number of votes relative to other producers. The selected producers are shuffled using a pseudorandom number derived from the block time.  This shuffling is done to ensure that all producers maintain balanced connectivity to all other producers.
 
+Using the EOS.IO software blocks are produced in rounds of 21.
+8. EOS.IO 소프트웨어를 이용하여 블록들은 21번의 단계로 구성되는 라운드로 생성됩니다.
+At the start of each round 21 unique block producers are chosen.
+9. 라운드의 시작에 21명의 블록 생산자가 선출됩니다.
+The top 20 by total approval are automatically chosen every round and the last producer is chosen proportional to their number of votes relative to other producers.
+10. 매 라운드마다 총 승인 횟수 상위 20명이 자동으로 배정되며, 마지막 생산자는 다른 생산자와의 관련 투표 수에 비례하여 선출됩니다.
+The selected producers are shuffled using a pseudorandom number derived from the block time.
+11. 블록 시간으로 유도되는 의사 난수(pseudorandom number)에 따라 선출된 생산자들의 블록 생성 순서를 랜덤하게 섞습니다.
+This shuffling is done to ensure that all producers maintain balanced connectivity to all other producers.
+12. 블록 생성 순서 섞기는 모든 생산자가 다른 생산자들과 균형적인 연결(balanced connectivity)을 유지하도록 진행합니다.
+
 If a producer misses a block and has not produced any block within the last 24 hours they are removed from consideration until they notify the blockchain of their intention to start producing blocks again. This ensures the network operates smoothly by minimizing the number of blocks missed by not scheduling those who are proven to be unreliable.
+13. 생산자가 블록 생성에 실패하고 지난 24시간동안 어떠한 블록을 생성하지 않는다면, 블록체인에 블록 생성 참여 의사를 알려주기 전까지 후보군에서 제외됩니다. 신뢰할 수 없는 사람을 참가시키지 않으므로 놓치는 블록의 수를 최소화 하고 네트워크가 원할하게 동작하도록 보장합니다.
 
 Under normal conditions a DPOS blockchain does not experience any forks because the block producers cooperate to produce blocks rather than compete.  In the event there is a fork, consensus will automatically switch to the longest chain. This metric works because the rate at which blocks are added to a blockchain chain fork is directly correlated to the percentage of block producers that share the same consensus. In other words, a blockchain fork with more producers on it will grow in length faster than one with fewer producers.  Furthermore, no block producer should be producing blocks on two forks at the same time. If a block producer is caught doing this then such block producer will likely be voted out. Cryptographic evidence of such double-production may also be used to automatically remove abusers.
 
+Under normal conditions a DPOS blockchain does not experience any forks because the block producers cooperate to produce blocks rather than compete.
+14. 일반적인 상황에서 지분 위임 증명(DPOS) 알고리즘을 사용하는 블록체인은 어떠한 포크(fork)도 일어나지 않습니다. 이는 블록 생성자가 경쟁이 아닌 협조를 하기 때문입니다.
+In the event there is a fork, consensus will automatically switch to the longest chain. This metric works because the rate at which blocks are added to a blockchain chain fork is directly correlated to the percentage of block producers that share the same consensus. In other words, a blockchain fork with more producers on it will grow in length faster than one with fewer producers.
+15. 포크가 일어난 경우, 합의 알고리즘은 자동적으로 가장 긴 블록 체인(chain)을 선택합니다. 이 방법이 동작하는 이유는, 특정 블록체인 포크에 블록들이 추가되는 속도는 같은 합의를 공유하는 블록 생성자의 비율과 직접적으로 연관되기 때문입니다. 다수의 생산자가 합의하는 블록체인 포크는 적은 생산자를 가진 것에 비하여 빠르게 커집니다.
+
+Furthermore, no block producer should be producing blocks on two forks at the same time. If a block producer is caught doing this then such block producer will likely be voted out. Cryptographic evidence of such double-production may also be used to automatically remove abusers.
+16. 어떠한 블록 생성자도 동시에 두개의 포크에 블록을 생성할 수 없습니다. 이러한 경우가 적발될 경우 해당 블록 생성자는 탄핵될 것입니다. 이러한 이중 생산에 대한 암호학적 증거(cryptographic evidence)는 정당하지 않은 방법으로 이득을 취한 사람을 자동으로 제거하는 데 사용될 수 있습니다.
+
 ## Transaction Confirmation
+## 트랜잭션 확인
 
 Typical DPOS blockchains have 100% block producer participation. A transaction can be considered confirmed with 99.9% certainty after an average of 1.5 seconds from time of broadcast.
 
