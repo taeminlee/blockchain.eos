@@ -268,22 +268,34 @@ It is possible for a node to warn users that there is a high probability that th
 
 The response to such a warning depends entirely upon the nature of the business transactions, but the simplest response is to wait for 15/21 confirmations until the warning stops.
 
-경보에 대한 대응은 비즈니스 트랜잭션의 성격에 따라 다르며, 가장 간단한 방법은 15/21 확인이 이루어져 경보가 끝나는 시점까지 기다리는 것 입니다.
+경보에 대한 대응은 비즈니스 트랜잭션의 성격에 따라 다르며, 가장 간단한 대응 방법은 15/21 확인이 이루어져 경보가 끝나는 시점까지 기다리는 것 입니다.
 
 ## Transaction as Proof of Stake (TaPoS)
 
-## 지분 증명으로서의 트랜잭션 (Transaction as Proof of Stake, TaPoS)
+## 트랜잭션 기반 지분 증명 (Transaction as Proof of Stake, TaPoS)
 
 The EOS.IO software requires every transaction to include the hash of a recent block header. This hash serves two purposes:
 
+EOS.IO 소프트웨어는 모든 트랜잭션이 최근 블록 헤더의 해쉬값을 포함하도록 요구합니다. 해쉬 값은 두가지 용도로 사용됩니다.
+
 1. prevents a replay of a transaction on forks that do not include the referenced block; and
+
+1. 참조 블록(referenced block)이 포함되지 않은 포크에서 트랜잭션이 재실행 되는 것을 방지합니다.
+
 2. signals the network that a particular user and their stake are on a specific fork.
+
+2. 특정 유저가 가진 자산이 어떤 포크에서 존재하는지 네트워크에 알려줍니다.
 
 Over time all users end up directly confirming the blockchain which makes it difficult to forge counterfeit chains as the counterfeit would not be able to migrate transactions from the legitimate chain.  
 
+시간이 경과할수록 모든 사용자는 직접적으로 블록체인을 확인(confirm)하게 되며, 합법적 체인의 거래를 위조 체인으로 옮길 수 없기 때문에 위조 체인을 만드는 것은 어렵게 됩니다.
+
 # Accounts
+# 계정
 
 The EOS.IO software permits all accounts to be referenced by a unique human readable name of 2 to 32 characters in length. The name is chosen by the creator of the account.  All accounts must be funded with the minimal account balance at the time they are created to cover the cost of storing account data.  Account names also support namespaces such that the owner of account @domain is the only one who can create the account @user.domain.
+
+
 
 In a decentralized context, application developers will pay the nominal cost of account creation to sign up a new user. Traditional businesses already spend significant sums of money per customer they acquire in the form of advertizing, free services, etc. The cost of funding a new blockchain account should be insignificant in comparison. Fortunately, there is no need to create accounts for users already signed up by another application.   
 
