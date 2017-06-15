@@ -21,6 +21,10 @@
 |consensus algorithm            |합의 알고리즘                ||
 |DPOS; Delegated Proof of Stake |지분 위임 증명               |maa님 용어 사용|
 |block producer                 |블록 생산자                 ||
+|transaction                    |트랜잭션                   ||
+|message                        |메시지                    |외래어 표준 표기법|
+|fork                           |포크                         ||
+|minority fork                  |소수 포크                  ||
 
 ## Music for work
 
