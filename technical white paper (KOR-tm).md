@@ -97,7 +97,7 @@ Without permission, anyone may use, reproduce or distribute any material in this
 
 # Background
 
-# EOS.IO 탄생 배경
+# EOS.IO 탄생 배경 (Background)
 
 Blockchain technology was introduced in 2008 with the launch of the bitcoin currency, and since then entrepreneurs and developers have been attempting to generalize the technology in order to support a wider range of applications on a single blockchain platform.  
 
@@ -113,7 +113,7 @@ Existing blockchain platforms are burdened by large fees and limited computation
 
 # Requirements for Blockchain Applications
 
-# 블록체인 애플리케이션의 요구사항
+# 블록체인 애플리케이션의 요구사항 (Requirements for Blockchain Application)
 
 In order to gain widespread use, applications on the blockchain require a platform that is flexible enough to meet the following requirements:
 
@@ -121,7 +121,7 @@ In order to gain widespread use, applications on the blockchain require a platfo
 
 ## Support Millions of Users
 
-## 1. 수백만의 사용자 허용
+## 1. 수백만의 사용자 허용 (Support Millions of Users)
 
 Disrupting businesses such as Ebay, Uber, AirBnB, and Facebook, require blockchain technology capable of handling tens of millions of active daily users.  In certain cases, applications may not work unless a critical mass of users is reached and therefore a platform that can handle mass number of users is paramount.
 
@@ -130,7 +130,7 @@ Ebay, Uber, AirBnB, Facebook과 같은 기존 서비스와 경쟁력을 갖추�
 
 ## Free Usage
 
-## 2. 무료 사용
+## 2. 무료 사용 (Free Usage)
 
 Application developers need the flexibility to offer users free services; Users should not have to pay in order to use the platform or benefit from its services. A blockchain platform that is free to use for users will likely gain more widespread adoption. Developers and businesses can then create effective monetization strategies.
 
@@ -138,7 +138,7 @@ Application developers need the flexibility to offer users free services; Users 
 
 ## Easy Upgrades and Bug Recovery
 
-## 3. 간편한 업그레이드 및 버그 해소
+## 3. 간편한 업그레이드 및 버그 해소 (Easy upgrades and Bug Recovery)
 
 Businesses building blockchain based applications need the flexibility to enhance their applications with new features.
 
@@ -150,7 +150,7 @@ All non-trivial software is subject to bugs, even with the most rigorous of form
 
 ## Low Latency
 
-## 4. 짧은 지연 시간
+## 4. 짧은 지연 시간 (Low Latency)
 
 A good user experience demands reliable feedback with delay of no more than a few seconds. Longer delays frustrate users and make applications built on a blockchain less competitive with existing non-blockchain alternatives.
 
@@ -158,7 +158,7 @@ A good user experience demands reliable feedback with delay of no more than a fe
 
 ## Sequential Performance
 
-## 5. 순차(sequential) 처리 성능
+## 5. 순차(sequential) 처리 성능 (Sequential Performance)
 
 There are some applications that just cannot be implemented with parallel algorithms due to sequentially dependent steps.  Applications such as exchanges need enough sequential performance to handle high volumes and therefore a platform with fast sequential performance is required.
 
@@ -166,7 +166,7 @@ There are some applications that just cannot be implemented with parallel algori
 
 ## Parallel Performance
 
-## 6. 병렬 처리 성능
+## 6. 병렬 처리 성능 (Parallel Performance)
 
 Large scale applications need to divide the workload across multiple CPUs and computers.
 
@@ -174,7 +174,7 @@ Large scale applications need to divide the workload across multiple CPUs and co
 
 # Consensus Algorithm (DPOS)
 
-# 합의 알고리즘 (DPOS)
+# 합의 알고리즘 (DPOS) (Consensus Algorithm)
 
 EOS.IO software utilizes the only decentralized consensus algorithm capable of meeting the performance requirements of applications on the blockchain, [Delegated Proof of Stake (DPOS)](https://steemit.com/dpos/@dantheman/dpos-consensus-algorithm-this-missing-white-paper). Under this algorithm, those who hold tokens on a blockchain may select block producers through a continuous approval voting system and anyone may choose to participate in block production and will be given an opportunity to produce blocks proportional to the total votes they have received relative to all other producers. For private blockchains the management will use the tokens to add and remove IT staff.
 
@@ -252,7 +252,7 @@ Furthermore, no block producer should be producing blocks on two forks at the sa
 
 ## Transaction Confirmation
 
-## 트랜잭션 확인(confirmation)
+## 트랜잭션 확인 (Transaction Confirmation)
 
 Typical DPOS blockchains have 100% block producer participation. A transaction can be considered confirmed with 99.9% certainty after an average of 1.5 seconds from time of broadcast.
 
@@ -291,83 +291,152 @@ Over time all users end up directly confirming the blockchain which makes it dif
 시간이 경과할수록 모든 사용자는 직접적으로 블록체인을 확인(confirm)하게 되며, 합법적 체인의 거래를 위조 체인으로 옮길 수 없기 때문에 위조 체인을 만드는 것은 어렵게 됩니다.
 
 # Accounts
-# 계정
+
+# 계정 (Accounts)
 
 The EOS.IO software permits all accounts to be referenced by a unique human readable name of 2 to 32 characters in length. The name is chosen by the creator of the account.  All accounts must be funded with the minimal account balance at the time they are created to cover the cost of storing account data.  Account names also support namespaces such that the owner of account @domain is the only one who can create the account @user.domain.
 
-
+EOS.IO 소프트웨어는 모든 계정이 2~32 글자의 읽을 수 있는 고유 이름으로 참조되도록 합니다. 계정 이름은 생성자가 선택합니다. 모든 계정은 만들어지는 시점에 계정 정보를 담는 저장 비용을 초과하는 잔고를 보유해야 합니다. 계정 이름은 네임스페이스 지원하며, @domain 계정의 소유자만이 @user.domain을 생성할 수 있도록 합니다.
 
 In a decentralized context, application developers will pay the nominal cost of account creation to sign up a new user. Traditional businesses already spend significant sums of money per customer they acquire in the form of advertizing, free services, etc. The cost of funding a new blockchain account should be insignificant in comparison. Fortunately, there is no need to create accounts for users already signed up by another application.   
 
+탈중앙화 환경에서, 애플리케이션 개발자는 새로운 사용자가 가입하여 계정을 생성하는 최소한의 비용을 부담해야 합니다. 기존의 사업은 이미 광고, 무료 서비스 등 다양한 형태로 고객들에게 상당한 금액을 지불하고 있습니다. 이와 비교할 때 새로운 블록체인 계정에 부담하는 비용은 상대적으로 미미할 것입니다. 이미 다른 애플리케이션에 가입한 사용자의 계정을 중복하여 가입할 필요는 없습니다.
+
 ## Messages & Handlers
+
+## 메시지와 처리기 (Messages & Handlers)
 
 Each account can send structured messages to other accounts and may define scripts to handle messages when they are received.  The EOS.IO software gives each account its own private database which can only be accessed by its own message handlers. Message handling scripts can also send messages to other accounts. The combination of messages and automated message handlers is how EOS.IO defines smart contracts.
 
+한 계정에서 다른 계정으로 구조화된 메시지(structured message)를 전송할 수 있으며, 이를 송신하였을 때 처리하는 스크립트(script)를 정의할 수 있습니다. EOS.IO 소프트웨어는 각각의 계정이 독립된 프라이빗 데이터베이스를 가지도록 하며, 자신의 메시지 처리기만이 접근하도록 허용합니다. 메시지 처리 스크립트에서 다른 계정으로 메시지를 전송할 수도 있습니다. EOS.IO는 스마트 컨트렉트(smart contract)를 메시지와 자동화된 메시지 처리기의 조합으로 정의합니다.
+
 ## Role Based Permission Management
+
+## 역할 기반 권한 관리 (Role Based Permission Management)
 
 Permission management involves determining whether or not a message is properly authorized. The simplest form of permission management is checking that a transaction has the required signatures, but this implies that required signatures are already known. Generally authority is bound to individuals or groups of individuals and is often compartmentalized. The EOS.IO software provides a declarative permission management system that gives accounts fine grained and high level control over who can do what and when.
 
+권한 관리는 메시지가 정상적으로 인증(authorized)되었는지 결정하는 것을 포함됩니다. 가장 단순한 형태의 권한 관리는 트랜잭션의 서명 여부를 검사하는 것이나, 이는 이미 필요한 서명을 알고 있을때 가능합니다. 일반적으로 권한은 사용자와 그룹에 부여되며 이는 종종 구분되어집니다. EOS.IO 소프트웨어는 계정별로 누가, 언제, 어떤 작업을 할 수 있는지에 대하여 세부적으로 제어하는 선언적 권한 관리 시스템을 제공합니다.
+
 It is critical that authentication and permission management be standardized and separate from the business logic of the application. This enables tools to be developed to manage permissions in a general purpose manner and also provide significant opportunities for performance optimization.  
+
+인증과 권한 관리를 표준화하고 애플리케이션의 비즈니스 로직과 분리하는 것이 중요합니다. 이것은 권한 관리가 범용적인 관점에서 이루어지도록하는 도구를 개발할 수 있게하며, 또한 성능 최적화의 큰 가능성이 열리게 합니다.
 
 Every account may be controlled by any weighted combination of other accounts and private keys. This creates a hierarchical authority structure that reflects how permissions are organized in reality, and makes multi-user control over funds easier than ever. Multi-user control is the single biggest contributor to security, and, when used properly, it can greatly eliminate the risk of theft due to hacking.
 
+모든 계정은 다른 계정들(other accounts)과 개인키들(private keys)의 가중치 조합(weighted combination)으로 제어될 수 있습니다. 이를 통해 현실의 권한 구성 방식과 유사한 위계적 인증 구조(hierarchical authority structure)를 생성할 수 있으며, 또한 기금(funds)에 대한 복수 매니저 운용(multi-user control)를 보다 쉽게 하도록 합니다. 복수 매니저 운용은 보안 관점에서 큰 의의를 가지며, 이를 올바르게 사용할 경우 해킹으로 인한 도난의 위험을 큰폭으로 감소시킬 수 있습니다.
+
 EOS.IO software allows accounts can define what combination of keys and/or other accounts can send a particular message type to another account.  For example, it is possible to have one key for a user's social media account and another for access to the exchange.  It is even possible to give other accounts permission to act on behalf of a user's account without  assigning them keys.  
 
+EOS.IO 소프트웨어는 타 계정으로 전송 가능한 메시지 타입을 키와 다른 계정의 자유로운 조합으로 정의할 수 있게 합니다. 예를 들어, 사용자의 소셜 미디어 계정의 키와 별도로 거래 권한의 키를 가질 수 있습니다. 다른 계정에 키를 할당하지 않고도 다른 계정이 사용자의 계정을 대신하여 활동할 수 있도록 할 수도 있습니다.
+
 ### Named Permission Levels
+
+### 명명된 권한 수준 (Named Permission Levels)
 
 <img align="right" src="http://eos.io/wpimg/diagram3.png" width="228.395px" height="300px" />
 
 Using the EOS.IO software, accounts can define named permission levels each of which can be derived from higher level named permissions. Each named permission level defines an authority; an authority is a threshold multi-signature check consisting of keys and/or named permission levels of other accounts. For example, an account's "Friend" permission level can be set for the account to be controlled equally by any of the account's friends.
 
+EOS.IO 소프트웨어를 이용하여 계정은 상위 명명된 권한 수준들로부터 파생되는 명명된 권한 수준을 정의할 수 있습니다. 각각의 명명된 권한 수준은 인증 방식(authority)을 정의합니다. 인증 방식은 다른 계정의 키와 명명된 권한 수준의 자유로운 조합에 대한 역치 다중 서명 확인(threshold multi-signature check)입니다. 예를 들어, 한 계정의 "친구" 권한 수준은 해당 계정에 대해 어떠한 친구 계정으로도 동등하게 제어될 수 있게 할 수 있습니다.
+
 Another example is the Steem blockchain which has three hard-coded named permission levels: owner, active, and posting. The posting permission can only perform social actions such as voting and posting, while the active permission can do everything except change the owner.  The owner permission is meant for cold storage and is able to do everything.  EOS.IO generalizes this concept by allowing each account holder to define their own hierarchy as well as the grouping of actions.
+
+다른 예제로서 steem 블록체인이 있으며, 여기에는 3가지 하드 코딩된 명명된 권한 수준을 가지고 있습니다. 소유자(owner), 활동(active), 포스팅(posting) 입니다. 포스팅 권한은 투표나 글쓰기와 같은 소셜 활동을 할 수 있으며, 활동 권한은 소유자 변경 외 모든 활동이 가능합니다. 소유자(owner) 권한은 콜드 스토리지(cold storage)를 의미하며 모든 활동이 가능합니다. EOS.IO는 steem의 개념을 일반화하여 각각의 계정 소유주가 활동 그룹을 포함하는 독자적인 위계(hierarchy)를 정의할 수 있도록 합니다.
 
 ### Named Message Handler Groups
 
+### 명명된 메시지 처리기 그룹 (Named Message Handler Groups)
+
 The EOS.IO software allows each account to organize its own message handlers into named and nested groups. These named message handler groups can be referenced by other accounts when they configure their permission levels.
+
+EOS.IO 소프트웨어는 각각의 계정이 독자적인 메시지 처리기를 명명(named)하고 중첩 그룹화(nested groups) 하는 것을 허용합니다. 명명된 메시지 핸들러 그룹(names message handler group)들은 권한 수준을 설정 할 때 다른 계정으로 부터 참조될 수 있습니다.
 
 The highest level message handler group is the account name and the lowest level is the individual message type being received by the account. These groups can be referenced like so:  **@accountname.groupa.subgroupb.MessageType**.
 
+최상위 수준의 메시지 처리기 그룹은 계정 이름이며, 가장 낮은 수준은 특정 계정으로 부터 받은 개별적인 메시지 타입 입니다. 이러한 그룹들은 다음과 같이 참조될 수 있습니다. **@계정명.그룹A.하위그룹B.메시지타입** (**@accountname.groupa.subgroupb.MessageType**)
+
 Under this model it is possible for an exchange contract to group order creation and canceling separately from deposit and withdraw. This grouping by the exchange contract is a convenience for users of the exchange.
+
+이러한 모형을 이용하여 거래소의 계약을 거래 단위로 그룹화 하여 입금과 출금을 별개로 다룰 수 있게 됩니다. 이러한 거래 계약의 그룹화는 교환소의 사용자에게 편의성을 제공합니다.
 
 ### Permission Mapping
 
+### 권한 매핑 (Permission Mapping)
+
 EOS.IO software allows each account to define a mapping between a Named Message Handler Group of any account and their own Named Permission Level.  For example, an account holder could map the account holder's social media application to the account holder's "Friend" permission group. With this mapping, any friend could post as the account holder on the account holder's social media.  Even though they would post as the account holder, they would still use their own keys to sign the message. This means it is always possible to identify which friends used the account and in what way.
+
+EOS.IO 소프트웨어는 계정별로 어떠한 계정의 명명된 메시지 처리기 그룹과 보유하고 있는 명명된 관리 수준 간의 매핑을 진행할 수 있도록 합니다. 예를 들어, 계정 소유자는 해당 계정 소유자의 소셜 미디어 애플리케이션을 "친구" 관리 그룹과 매핑할 수 있습니다. 이 매핑을 통해, 어떤 친구들이라도 계정 소유자처럼 계정 소유자의 소셜 미디어에 포스팅할 수 있습니다. 친구들이 계정 소유자처럼 포스팅을 할지라도 그들이 가진 키로 메시지를 서명합니다. 이는 어떤 친구가 계정을 사용했고 무엇을 하였는지 알 수 있음을 뜻합니다.
 
 ### Evaluating Permissions
 
+### 권한 검사 (Evaluating Permissions)
+
 When delivering a message of type "**Action**", from **@alice** to **@bob** the EOS.IO software will first check to see if **@alice** has defined a permission mapping for **@bob.groupa.subgroup.Action**.  If nothing is found then a mapping for **@bob.groupa.subgroup** then **@bob.groupa**, and lastly **@bob** will be checked. If no further match is found, then the assumed mapping will be to the named permission group **@alice.active**.  
 
+**@앨리스**가 **@밥**에게 "**액션**" 타입의 메시지를 보낸다 가정해봅시다. EOS.IO 소프트웨어는 먼저 **@앨리스**가 **@밥.그룹A.하위그룹.액션** 처리기에 대한 권한을 매핑하였는지 확인합니다. 만약 매핑되어 있지 않다면 매핑이 발결될 때 까지 **@밥.그룹A.하위그룹**, **@밥.그룹A**, **@밥**의 순서로 검사합니다. 만약 메시지 처리기에 대한 매핑이 없을 경우 **@앨리스.활동(active)** 명명된 권한 그룹 매핑을 가정합니다.
+
 Once a mapping is identified then signing authority is validated using the threshold multi-signature process and the authority associated with the named permission. If that fails, then it traverses up to the parent permission and ultimately to the owner permission, **@alice.owner**.  
+
+만약 매핑이 확인이 되면 역치 다중 서명 절차와 명명된 권한에 대한 인증을 통해 서명된 인증에 대한 유효성을 검증합니다. 실패할 경우 상위 권한으로 검사를 수행하며 최종적으로 소유자 권한인 **@앨리스.소유자(owner)**까지 검사를 진행합니다.
 
 <img align="center" src="http://eos.io/wpimg/diagram2grayscale2.jpg" width="845.85px" height="500px" />
 
 #### Default Permission Groups
 
+#### 기본 권한 그룹( Default Permission Groups)
+
 The technology also allows all accounts have an "owner" group which can do everything, and an "active" group which can do everything except change the owner group.  All other permission groups are derived from "active".  
+
+모든 계정은 제한이 없는 "소유자(owner)" 권한과  소유자 변경 외 모든 것이 가능한 "활동(active)" 권한을 가집니다. 그외 다른 권한은 "활동(active)"로부터 파생됩니다.
 
 #### Parallel Evaluation of Permissions
 
+#### 권한 검사의 병렬화 (Parallel Evaluation of Permissions)
+
 The permission evaluation process is "read-only" and changes to permissions made by transactions do not take effect until the end of a block. This means that all keys and permission evaluation for all transactions can be executed in parallel. Furthermore, this means that a rapid validation of permission is possible without starting the costly application logic that would have to be rolled back. Lastly, it means that transaction permissions can be evaluated as pending transactions are received and do not need to be re-evaluated as they are applied.
+
+권한 검사 절차는 "읽기 작업만" 필요로 하며 트랜잭션으로 인한 권한의 변경은 블록이 종료될 때까지는 어떠한 영향도 발휘하지 못합니다. 이것은 모든 트랜잭션의 모든 키와 권한 검사가 병렬적으로 진행될 수 있음을 뜻합니다. 더 나아가, 롤백을 고려해야 될 수도 있어 처리 비용이 많이 발생하는 애플리케이션 로직이 없는 신속한 권한 검사의 가능함도 뜻합니다. 마지막으로, 이는 보류중인 트랜잭션이 수신 될 때 트랜잭션 권한을 평가할 수 있으며, 승인된 트랜잭션은 다시 검사할 필요가 없습니다.
 
 All things considered, permission verification represents a significant percentage of the computation required to validate transactions. Making this a read-only and trivially parallelizable process enables a dramatic increase in performance.
 
+전체적인 관점에서, 권한 검사는 트랜잭션 유효성 검사에서 많은 연산 비중을 가집니다. 그러므로 권한 검사를 읽기 연산만으로 구성하여 병렬화 하면 전체 성능의 큰 향상을 얻게 됩니다.
+
 When replaying the blockchain to regenerate the deterministic state from the log of messages there is no need to evaluate the permissions again. The fact that a transaction is included in a known good block is sufficient to skip this step. This dramatically reduces the computational load associated with replaying an ever growing blockchain.
+
+메시지 로그(message log)로부터 블록 체인의 결정된 상태(deterministic state)로 재구축(replay) 하는 과정에서 권한 검사를 다시 수행할 필요는 없습니다. 정상적인 블록에 트랜잭션이 포함되어 있음으로 이 과정을 넘길 수 있습니다. 점진적으로 과대해지는 블록체인의 재구축에 소요되는 계산 비용을 큰폭으로 감소시킬 수 있습니다.
 
 ## Messages with Mandatory Delay
 
+## 메시지의 필수 지연 시간
+
 Time is a critical component of security. In most cases, it is not possible to know if a private key has been stolen until it has been used. Time based security is even more critical when people have applications that require keys be kept on computers connected to the internet for daily use.  The EOS.IO software enables application developers to indicate that certain messages must wait a minimum period of time after being included in a block before they can be applied. During this time they can be canceled.  
+
+시간은 보안의 핵심 요소입니다. 대부분의 경우, 개인 키(private key)가 도난당한 경우 사용되기 전까지 알기 어렵습니다. 인터넷에 연결된 컴퓨터에 보관되는 키를 사용하는 애플리케이션을 일상적으로 사용하는 사람들에게 시간 기반의 보안은 더욱 더 중요합니다. EOS.IO 소프트웨어는 애플리케이션 개발자로 하여금 특정 메시지가 블록에 포함되기 시작하고 적용되기 이전에 지정한 시간 만큼을 기다리도록 표시할 수 있게 합니다. 지정한 시간 내에서 메시지는 취소 가능합니다.
 
 Users can then receive notice via email or text message when one of these messages is broadcast. If they did not authorize it, then they can use the account recovery process to recover their account and retract the message.
 
+사용자는 이메일이나 단문으로 메시지가 전송되었음을 안내받을 수 있습니다. 만약 본인이 한 것이 아니라면, 계정 복구 절차를 통해 계정 복구와 메시지 철회를 할 수 있습니다.
+
 The required delay depends upon how sensitive an operation is. Paying for a coffee can have no delay and be irreversible in seconds, while buying a house may require a 72 hour clearing period. Transferring an entire account to new control may take up to 30 days. The exact delays chosen are up to application developers and users.
+
+요구되는 지연 시간은 작업의 중요도에 따라 다릅니다. 커피 한잔을 구매하는 것에는 딜레이를 부여하지 않아 몇초 내로 취소 불가로 전환되며, 집을 사는 문제라면 72시간의 거래 완료 조정 기간을 둘 수 있습니다. 전체 계정을 새로운 환경으로 전환하는 것은 30일의 유예기간을 둘 수도 있습니다. 실제 지연 시간은 애플리케이션 개발자와 사용자가 정하게 될 것입니다.
 
 ## Recovery from Stolen Keys
 
+## 키 도난 상태에서의 복구
+
 The EOS.IO software provides users a way to restore control of their account when their keys are stolen. An account owner can use any owner key that was active in the last 30 days along with approval from their designated account recovery partner to reset the owner key on their account. The account recovery partner cannot reset control of the account without the help of the owner.
+
+EOS.IO 소프트웨어는 사용자의 키가 도난 당하였을 때 계정에 대한 복구 작업을 제공합니다. 계정 소유자는 최근 30일 내에 사용한 키를 가지고 지정된 계정 복구 협력자와 협력하여 계정을 재설정할 수 있습니다. 계정 복구 협력자는 소유자의 허가 없이 계정에 작업을 할 수 없습니다.
 
 There is nothing for the hacker to gain by attempting to go through the recovery process because they already "control" the account. Furthermore, if they did go through the process, the recovery partner would likely demand identification and multi-factor authentication (phone and email).  This would likely compromise the hacker or gain the hacker nothing in the process.
 
+키를 가진 해커는 이미 계정을 제어할 수 있으므로 복구 프로세스를 시도하여 얻을 수 있는 것은 없습니다. 복구 프로세스에 진입하여도 복구 협력자는 추가적인 신분 증명이나 2채널 인증(핸드폰이나 이메일)을 요구할 것입니다. 이 과정에서 해커의 정체가 노출되거나 아무것도 얻지 않을 수 있습니다.
+
 This process is also very different from a simple multi-signature arrangement. With a multi-signature transaction, there is another company that is party to every transaction that is executed, but with the recovery process the agent is only a party to the recovery process and has no power over the day-to-day transactions. This dramatically reduces costs and legal liabilities for everyone involved.
+
+이 과정은 단순한 다중 서명 합의(multi-signature arrangement)와 매우 다릅니다. 다중 서명 트랜잭션의 경우 모든 트랜잭션에 관여하는 별도의 회사가 존재하는 것입니다. 복구 처리 과정을 이용하면 복구 협력자는 복구과정에만 관여하며 트랜잭션에 관해서는 어떠한 영향력도 행사하지 않습니다. 이로 인해 참여자들에 대한 비용과 법적 책임을 큰폭으로 감소시킬 수 있습니다.
 
 # Deterministic Parallel Execution of Applications
 
