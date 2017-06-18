@@ -440,15 +440,27 @@ This process is also very different from a simple multi-signature arrangement. W
 
 # Deterministic Parallel Execution of Applications
 
+# 애플리케이션의 결정론적 병렬 실행
+
 Blockchain consensus depends upon deterministic (reproducible) behavior. This means all parallel execution must be free from the use of mutexes or other locking primitives.  Without locks there must be some way to guarantee that all accounts can only read and write their own private database.  It also means that each account processes messages sequentially and that parallelism will be at the account level.  
+
+블록체인 합의(consensus)는 재현 가능한 결정론적 행위(deterministic behavior)에 달려있습니다. 이는 모든 병렬 실행은 뮤텍스(mutex)나 다른 기초 로킹 연산(locking primitive) 없이 수행되어야 함을 뜻합니다. 로크(lock)가 없다면 다른 방식으로 모든 계정이 보유한 프라이빗 데이터베이스에만 읽기/쓰기 연산이 가능하도록 보장하여야 합니다. 또한 각각의 계정안의 메시지들을 순차적으로 처리하며, 연산의 병렬성은 계정 단위에서 수행됨을 뜻합니다.
 
 Using the EOS.IO software, it is the job of the block producer to organize message delivery into independent threads so that they can be evaluated in parallel.  The state of each account depends only upon the messages delivered to it. The schedule is the output of a block producer and will be deterministically executed, but the process for generating the schedule need not be deterministic. This means that block producers can utilize parallel algorithms to schedule transactions.
 
+EOS.IO 소프트웨어를 사용할 때, 메시지를 개별적인 쓰레드로 구성하여 병렬 평가되도록 하는 것은 블록 생산자가 수행하는 일입니다. 각각의 계정의 상태(state)는 전달받은 메시지에 달려있습니다. 블록 생산자의 결과물로 실행 스케쥴이 나오게 되며, 이는 결정론적으로 실행됩니다. 다만, 스케쥴을 만드는 과정까지 결정론적일 필요는 없습니다. 이는 블록 생산자가 트랜잭션을 스케쥴링 할때 병렬 알고리즘을 활용할 수 있음을 뜻합니다.
+
 Part of parallel execution means that when a script generates a new message it does not get delivered immediately, instead it is scheduled to be delivered in the next cycle. The reason it cannot be delivered immediately is because the receiver may be actively modifying its own state in another thread.
+
+스크립트가 새로운 메시지를 만들 때, 바로 전달되지 않고 다음 사이클(cycle)에 전달되도록 스케쥴을 구성하는 것을 부분적 병렬 실행이라 합니다. 메시지를 바로 전달할 수 없는 이유는 수신자(receiver)가 다른 쓰레드로 인해 상태가 변경되고 있을 수 있기 때문입니다.
 
 ## Minimizing Communication Latency
 
+## 통신 지연 최소화
+
 Latency is the time it takes for one account to send a message to another account and then receive a response.  The goal is to enable two accounts to exchange messages back and forth within a single block without having to wait 3 seconds between each message. To enable this, the EOS.IO software divides each block into cycles.  Each cycle is divided into threads and each thread contains a list of transactions.  Each transaction contains a set of messages to be delivered. This structure can be visualized as a tree where alternating layers are processed sequentially and in parallel.
+
+지연 시간은 한 계정에서 다른 계정으로 메시지를 보내고 응답을 받기 까지의 시간입니다. 기술적 목표는 두 계정 사이의 메시지 교환이 단일 블록에서 이루어지며 메시지간 간격이 3초 이내에 들어가게 하는 것 입니다. 목표를 달성하기 위해 EOS.IO 소프트웨어는 블록을 사이클 단위로 분할합니다. 각각의 트랜잭션은 전달하는 메시지의 집합으로 구성됩니다. 이러한 구조는 트리(tree) 형태로 시각화 가능하며, 레이어 단위로 순차(sequentially) 처리되거나 병렬(parallel) 처리 됩니다.
 
 ```
       Block
@@ -480,19 +492,35 @@ Latency is the time it takes for one account to send a message to another accoun
 
 Transactions generated in one cycle can be delivered in any subsequent cycle or block. Block producers will keep adding cycles to a block until the maximum wall clock time has passed or there are no new generated transactions to deliver.
 
+하나의 사이클에서 생성된 트랜잭션들은 이후 사이클 혹은 블록에서 전달됩니다. 블록 생산자는 블록에 지정된 시간(3초)가 경과하거나 더이상 전달할 트랜잭션이 없을 때 까지 사이클을 계속 추가합니다.
+
 It is possible to use static analysis of a block to verify that within a given cycle no two threads contain transactions that modify the same account. So long as that invariant is maintained a block can be processed by running all threads in parallel.
+
+정적 분석(static analysis)으로 한 블록에서 동일 사이클에 같은 계정을 수정하는 2개 이상의 쓰레드를 가진 트랜잭션이 없는지 알 수 있습니다. 없을 경우, 하나의 블록은 여러개의 쓰레드로 병렬 처리할 수 있습니다.
 
 ## Read-Only Message Handlers
 
+## 읽기 전용 메시지 처리기 (Read-Only Message Handlers)
+
 Some accounts may be able to process a message on a pass/fail basis without modifying their internal state. If this is the case then these handlers can be executed in parallel so long as only read-only message handlers for a particular account are included in one or more threads within a particular cycle.
+
+특정 계정의 메시지는 내부 상태의 수정이 아닌 통과/실패(pass/fail) 기반으로 처리할 때도 있습니다. 이러한 경우 특정 사이클에 하나 이상의 쓰레드가 포함될 경우 해당 작업을 수행하는 메시지 처리기는 병렬 처리가 가능합니다.
 
 ## Atomic Transactions with Multiple Accounts
 
+## 다중 계정의 원자적 트랜잭션 (Atomic Transactions with Multiple Accounts)
+
 Sometimes it is desirable to ensure that messages are delivered to and accepted by multiple accounts atomically. In this case both messages are placed in one transaction and both accounts will be assigned the same thread and the messages applied sequentially. This situation is not ideal for performance and when it comes to "billing" users for usage, they will get billed by the number of unique accounts referenced by a transaction.
+
+종종 다수의 계정에 메시지의 전달 및 적용에 대한 원자성(atomicity)을 보장해야 합니다. 이 경우, 두 메시지는 하나의 트랜잭션에 위치하고, 두 계정은 동일한 쓰레드에 할당되며, 메시지는 순차적으로 적용됩니다. 이 방식은 성능면에서 이상적이지 않습니다. 사용량에 대한 "청구(billing)"를 수행할 때 트랜잭션에 참고된 계정의 수 만큼 비용이 청구됩니다.
 
 For performance and cost reasons it is best to minimize atomic operations involving two or more heavily utilized accounts.  
 
+성능과 비용 측면에서 2개 이상의 계정이 참여하는 원자적 트랜잭션을 줄이는 것이 좋습니다.
+
 ## Partial Evaluation of Blockchain State
+
+## 블록체인 상태의 부분 검사 (Partial Evaluation of Blockchain State)
 
 Scaling blockchain technology necessitates that components are modular. Everyone should not have to run everything, especially if they only need to use a small subset of the applications.
 
