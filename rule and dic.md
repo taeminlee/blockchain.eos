@@ -37,7 +37,9 @@
 |atomicity                      |원자적                        |DB의 **A**CID|
 |evaluation                     |검사                         ||
 |resource                       |리소스                        |음차하여 사용|
-|governance                     |거버넌스                       |의미상으로는 의회나 정부에 가깝긴 하나, 오해의 소지가 크므로 음차하여 사용|
+|governance                     |거버넌스                       |음차하여 사용|
+|virtual machine                |가상 머신                       |반 음차하여 사용|
+|web assembly                   |웹 어셈블리                 |신규 웹 표준, 음차하여 사용|
 
 ## Music for work
 

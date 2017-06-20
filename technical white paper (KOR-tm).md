@@ -767,22 +767,24 @@ The block producers may accelerate the process if a software change is required 
 치명적인 버그나 공격자로 인한 보안 문제가 발생할 경우 블록 생산자는 판올림 과정을 빠르게 해야합니다. 일반적으로 새로운 기능을 도입하거나 치명적이지 않은 버그를 수정하기 위해 판올림의 가속화를 하는 것은 헌법에 위배됩니다.
 
 # Scripts & Virtual Machines
-# 스크립트와 가상 머신
+
+# 스크립트와 가상 머신 (Scripts & Virtual Machines)
 
 The EOS.IO software will be first and foremost a platform for coordinating the delivery of authenticated messages to accounts. The details of scripting language and virtual machine are implementation specific details that are mostly independent from the design of the EOS.IO technology.  Any language or virtual machine that is deterministic and properly sandboxed with sufficient performance can be integrated with the EOS.IO software API.
 
-인증된 메시지를 어카운트로 전달하는...
-어떠한 언어나 가상 머신 ~ 캔 비 EOS.IO의 소프트웨어 API로 결합될 수 있다.
+EOS.IO 소프트웨어는 인증된 메시지를 계정으로 전달하는 과정을 조정하는 최초이자 가장 중요한 플랫폼입니다. 스크립트 언어와 가상 머신(virtual machine)의 세부 내용은 EOS.IO의 기술 설계와 독립적인 세부 구현 사항입니다. EOS.IO 소프트웨어 API를 이용하여 어떠한 언어나 성능을 보장하는 샌드박스 처리되며 결정론적으로 동작하는 가상 머신을 통합할 수 있습니다.
 
 ## Schema Defined Messages
-## 스키마 정의 매시지
+
+## 스키마 정의 매시지 (Schema Defined Messages)
 
 All messages sent between accounts are defined by a schema which is part of the blockchain consensus state. This schema allows seamless conversion between binary and JSON representation of the messages.  
 
-계정 간의 모든 메시지는 블록체인 규약 상태의 일부인 스키마에 따라 정의됩니다. 스키마는 바이너리와 JSON 형식의 메시지의 경계없는(seamless) 대화를 허용합니다.
+계정 간의 모든 메시지는 블록체인 합의 상태의 일부인 스키마(schema)에 따라 정의됩니다. 이 스키마는 바이너리와 JSON 형식의 메시지의 경계없는(seamless) 대화를 허용합니다.
 
 ## Schema Defined Database
-## 스키마 정의 데이터베이스
+
+## 스키마 정의 데이터베이스 (Schema Defined Database)
 
 Database state is also defined using a similar schema. This ensures that all data stored by all applications is in a format that can be interpreted as human readable JSON but stored and manipulated with the efficiency of binary.
 
@@ -790,7 +792,7 @@ Database state is also defined using a similar schema. This ensures that all dat
 
 ## Separating Authentication from Application
 
-## 애플리케이션과 인증 분리
+## 애플리케이션과 인증 분리 (Separating Authentication from Application)
 
 To maximize parallelization opportunities and minimize the computational debt associated with regenerating application state from the transaction log, EOS.IO separates validation logic into three sections:
 
@@ -818,17 +820,31 @@ Authentication is the read-only process of verifying that a message can be appli
 
 ## Virtual Machine Independent Architecture
 
+## 가상 머신 독립 아키텍처 (Virtual Machine Independent Architecture)
+
 It is the intention of the EOS.IO software that multiple virtual machines can be supported and new virtual machines added over time as necessary. For this reason, this paper will not discuss the details of any particular language or virtual machine. That said, there are two virtual machines that are currently being evaluated for use within EOS.IO.
+
+EOS.IO 소프트웨어의 설계 목적은 다수의 가상 머신을 운용하며 필요에 따라 새로운 가상 머신을 추가하는 것 입니다. 그러므로 본 백서에서는 특정 언어나 가상머신에 세부적인 내용에 관하여 기술하지 않습니다. 현재 EOS.IO를 이용하여 평가중인 가상 머신은 2가지 입니다.
 
 ### Web Assembly (WASM)
 
+### 웹 어셈블리 (WASM; Web Assembly)
+
 Web Assembly is an emerging web standard for building high performance web applications. With a few small modifications Web Assembly can be made deterministic and sandboxed. The benefit of Web Assembly is the widespread support from industry and that it enables contracts to be developed in familiar languages such as C or C++.
+
+웹 어셈블리는 고성능의 웹 애플리케이션을 제작하기 위하여 새로이 등장한 웹 표준입니다. 웹 어셈블리을 일부 수정하여 결정론적이며 샌드박스인 형태로 만들 수 있습니다. 웹 어셈블리의 장점은 산업 현장에서 폭넓게 수용되고 있으며, 친숙한 언어인 C나 C++로 컨트렉트를 개발할 수 있습니다.
 
 Ethereum developers have already begun modifying Web Assembly to provide suitable sandboxing and determinism in with their [Ethereum flavored Web Assembly (WASM)](https://github.com/ewasm/design). This approach can be easily adapted and integrated with EOS.IO software.  
 
+이더리움 개발자들은 [Ethereum flavored Web Assembly (EWASM)](https://github.com/ewasm/design)으로 웹 어셈블리를 수정하여 샌드박싱하고 결정론적으로 변환하는 작업에 착수하였습니다. EWASM은 EOS.IO 소프트웨어에 쉽게 적용하고 통합할 수 있습니다.
+
 ### Ethereum Virtual Machine (EVM)
 
+### 이더리움 가상 머신 (EVM; Ethereum Virtual Machine)
+
 This virtual machine has been used for most existing smart contracts and could be adapted to work within an EOS.IO blockchain.  It is conceivable that EVM contracts could be run within their own sandbox inside an EOS.IO blockchain and that with some adaptation EVM contracts could communicate with other EOS.IO blockchain applications.
+
+이 가상머신은 현존하는 대부분의 스마트 컨트렉트를 구동할 수 있으며, 이를 이용하여 그들의 작업물을 EOS.IO 블록체인에 적용할 수 있습니다. EVM의 컨트렉트는 샌드박스 안에서 구동되며, 약간의 조정을 거치면 EOS.IO의 블록체인 애플리케이션과 통신할 수 있습니다.
 
 # Inter Blockchain Communication
 
