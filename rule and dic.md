@@ -36,6 +36,7 @@
 |private database               |프라이빗 데이터베이스        |개인 + 비공개의 의미를 모두 담아야 하는데 한번에 표현할 단어를 아직 못찾아 음차하였음|
 |atomicity                      |원자적                        |DB의 **A**CID|
 |evaluation                     |검사                         ||
+|resource                       |리소스                        |음차하여 사용|
 
 ## Music for work
 

@@ -564,57 +564,111 @@ This subjective evaluation of computational cost frees the blockchain from havin
 
 # Token Model and Resource Usage
 
+# 토큰 모델과 리소스 사용
+
 All blockchains are resource constrained and require a system to prevent abuse. With the EOS.IO software, there are three broad classes of resources that are consumed by applications:
+
+모든 블록체인의 리소스는 제한적이며 부당 사용을 막는 장치가 필요합니다. EOS.IO 소프트웨어는 리소스를 크게 세가지 분류로 나눕니다.
 
 1. Bandwidth and Log Storage (Disk);
 2. Computation and Computational Backlog (CPU); and
 3. State Storage (RAM).
 
-Bandwidth and computation have two components, instantaneous usage and long-term usage. A blockchain maintains a log of all messages and this log is ultimately stored and downloaded by all full nodes. With the log of messages it is possible to reconstruct the state of all applications.
+1. 대역폭과 로그 기록소 (디스크)
+2. 연산과 연산 로그 (CPU)
+3. 상태 저장소 (램)
+
+Bandwidth and computation have two components, instantaneous usage and long-term usage. A blockchain maintains a log of all messages and this log is   and downloaded by all full nodes. With the log of messages it is possible to reconstruct the state of all applications.
+
+대역폭과 연산은 즉시 사용과 장기 사용의 2개의 구성요소가 있습니다. 블록체인은 모든 메시지의 로그를 관리합니다. 로그는 저장되며 풀 노드(full node)에 다운로드 됩니다. 메시지의 로그를 통해 모든 애플리케이션의 상태를 재구축 할 수 있습니다.
 
 The computational debt is calculations that must be performed to regenerate state from the message log. If the computational debt grows too large then it becomes necessary to take snapshots of the blockchain's state and discard the blockchain's history. If computational debt grows too quickly then it may take 6 months to replay 1 year worth of transactions. It is critical, therefore, that the computational debt be carefully managed.
 
+메시지 로그로 부터 상태를 재구축 하기 위해 수행되는 계산을 연산 부채(compudational debt)라 합니다. 만약에 연산 부채가 과다하게 증가되면 블록체인의 상태의 스냅샷(snapshot)을 저장하고, 과거 이력을 제거할 필요성이 생깁니다. 만약에 연산 부채가 너무 빠르게 증가하면 때론 1년의 트랜잭션을 재현하기 위해 6개월의 시간이 필요할 수도 있습니다. 이는 매우 치명적이므로 연산 부채는 주의깊게 관리되어야 합니다.
+
 Blockchain state storage is information that is accessible from application logic. It includes information such as order books and account balances. If the state is never read by the application then it should not be stored. For example, blog post content and comments are not read by application logic so they should not be stored in the blockchain's state.  Meanwhile the existence of a post/comment, the number of votes, and other properties do get stored as part of the blockchain's state.
+
+블록체인 상태 저장소는 애플리케이션 로직이 접근할 수 있는 정보입니다. 이는 계정 잔고와 거래 내역 등의 정보를 담고 있습니다. 만약에 애플리케이션이 특정 상태를 읽는 일이 없다면 굳이 저장할 필요가 없습니다. 예를 들어, 블로그 작성 글의 내용과 댓글 내용은 애플리케이션 로직에 의해 읽히지 않으므로 블록체인 상태에 저장할 필요가 없습니다. 반면에 글/댓글의 존재여부와 투표 횟수 등의 속성 값은 블록체인 상태에 기록되어야 합니다.
 
 Block producers publish their available capacity for bandwidth, computation, and state. The EOS.IO software allows each account to consume a percentage of the available capacity proportional to the amount of tokens held in a 3-day staking contract. For example, if a blockchain based on the EOS.IO software is launched and if an account holds 1% of the total tokens distributable pursuant to that blockchain, then that account has the potential to utilize 1% of the state storage capacity.
 
+블록 생산자는 그들이 가용 가능한 대역폭, 연산 능력, 상태 허용량을 알려주어야 합니다. EOS.IO 소프트웨어는 각각의 계정이 3일간 누적한 계약의 토큰 양에 비례하여 자원을 사용하게 허용합니다. 예를들어, EOS.IO 기반의 블록체인이 출시한 후 한 계정이 배포 가능한 전체 토큰의 1%를 가지고 있으면 해당 계정은 전체 상태 저장소의 1%를 사용할 수 있습니다.
+
 Using the EOS.IO software, bandwidth and computational capacity are allocated on a fractional reserve basis because they are transient (unused capacity cannot be saved for future use). The algorithm used by EOS.IO is similar to the algorithm used by Steem to rate-limit bandwidth usage.
+
+EOS.IO 소프트웨어를 에서 대역폭과 연산 허용량은 일시적(사용하지 못한 리소스를 나중에 다시 쓸 수 없음)이므로 예비 예약 기준으로 할당됩니다. EOS.IO의 알고리즘은 스팀에서 대역폭 사용량의 속도를 제어하는 알고리즘과 유사합니다.
 
 ## Objective and Subjective Measurements
 
+## 객관적 측정과 주관적 측정
+
 As discussed earlier, instrumenting computational usage has a significant impact on performance and optimization; therefore, all resource usage constraints are ultimately subjective and enforcement is done by block producers according to their individual algorithms and estimates.
+
+연산 사용량의 계측은 성능과 최적화에 큰 영향을 미칩니다. 그러므로 모든 리스스 사용 제한은 궁극적으로 블록 생산자의 개별적인 측정 방식과 알고리즘에 의하여 주관적으로 이루어져야 합니다.
 
 That said, there are certain things that are trivial to measure objectively. The number of messages delivered and the size of the data stored in the internal database are cheap to measure objectively. The EOS.IO software enables block producers to apply the same algorithm over these objective measures but may choose to apply stricter subjective algorithms over subjective measurements.  
 
+객관적으로 측정 가능한 것들도 있습니다. 메시지 전달 수와 내부 데이터베이스에 저장하는 데이터의 양은 객관적으로 측정할 수 있습니다. EOS.IO 소프트웨어는 블록 생산자로 하여금 객관적 측정을 위한 동일한 알고리즘을 적용할 수 있게 합니다. 물론 주관적 측정 방식을 위한 주관적 알고리즘만 적용하게 할 수도 있습니다.
+
 ## Receiver Pays
+
+## 수취인 부담
 
 Traditionally, it is the business that pays for office space, computational power, and other costs required to run the business. The customer buys specific products from the business and the revenue from those product sales is used to cover the business costs of operation. Similarly, no website obligates its visitors to make micropayments for visiting its website to cover hosting costs. Therefore, decentralized applications should not force its customers to pay the blockchain directly for the use of the blockchain.
 
+전통적으로, 사업을 하기 위해서는 오피스 공간, 연산 능력, 그 외의 요소들을 구매해야 하며 여기에서 비용이 발생합니다. 고객이 특정 물품을 구매할 때, 벌어들인 이익의 일부는 이러한 사업 비용을 지불할 때 사용됩니다. 고객이 직접적으로 사업 비용을 내지는 않습니다. 비슷하게 생각해보면, 어떠한 웹사이트도 고객이 소액결재를 할 때 호스팅 비용을 요구하지 않습니다. 그러므로, 탈중앙화 애플리케이션 역시 고객으로 하여금 블록체인을 사용할 때 블록체인 사용료를 요구하여서는 안됩니다.
+
 The EOS.IO software does not require its users to pay directly to the blockchain for its use and therefore does not constrain or prevent a business from determining its own monetization strategy for its products.
+
+EOS.IO 소프트웨어는 사용자가 블록체인 사용 비용을 직접 비용을 지불할 필요가 없습니다. 그러므로 사업이 상품의 수익 창출 전략을 제한하거나 막지 않습니다.
 
 ## Delegating Capacity
 
+## 리소스 허용량 위임
+
 If a blockchain is launched using the EOS.IO software and tokens are held by a holder who may not have an immediate need to consume all or part of the available bandwidth, such holder can choose to give or rent the unconsumed bandwidth to others; the block producers running EOS.IO software will recognize this delegation of capacity and allocate bandwidth accordingly.
+
+EOS.IO 소프트웨어를 사용하여 블록체인을 출시하였을 때, 필요한 대역폭보다 많은 토큰을 가지고 있는 소유자를 가정해 봅시다. 해당 소유자는 남은 대역폭을 다른 사람에게 양도하거나 빌려줄 수 있습니다. EOS.IO의 블록 생산자는 이러한 대역폭 허용량의 양도를 인지할 수 있으며, 이에 맞추어 대역폭을 재할당 합니다.
 
 ## Separating Transaction costs from Token Value
 
+## 토큰의 가치와 트랜잭션 비용의 분리
+
 One of the major benefits of the EOS.IO software is that the amount of bandwidth available to an application is entirely independent of any token price. If an application owner holds a relevant number of tokens, then the application can run indefinitely within a fixed state and bandwidth usage. Developers and users are unaffected from any price volatility in the token market and therefore not reliant on a price feed. The EOS.IO software enables block producers to naturally increase bandwidth, computation, and storage available per token independent of the token's value.
+
+EOS.IO 소프트웨어의 큰 장점 중 하나는 애플리케이션에서 필요한 대역폭은 어떠한 토큰 가격과도 독립적이라는 것입니다. 만약에 애플리케이션 소유자가 충분한 양의 토큰을 가지고 있다면, 애플리케이션은 고정된 상태와 대역폭 사용량 내에서 제한없이 구동됩니다. 개발자와 사용자는 토큰 시장의 가격 변동성에 영향을 받지 않으며, 가격 추이에 연연하지 않게 됩니다. EOS.IO 소프트웨어에서 블록 생산자는 토큰의 가치와 무관하게 자연스럽게 대역폭, 연산 능력, 저장 능력을 향상시킬 수 있습니다.
 
 The EOS.IO software awards block producers tokens every time they produce the block. The value of the tokens will impact the amount of bandwidth, storage, and computation a producer can afford to purchase; this model naturally leverages rising token values to increase network performance.
 
+EOS.IO 소프트웨어는 블록 생산자가 블록을 생성할 때 마다 보상으로 토큰을 제공합니다. 토큰의 가치는 블록 생산자가 구매할 수 있는 대역폭, 저장소, 연산장치에 영향을 줍니다. 이러한 모델은 토큰 가치의 상승을 이용하여 네트워크 성능을 향상시킵니다.
+
 ## State Storage Costs
+
+## 상태 저장 비용
 
 While bandwidth and computation can be delegated, storage of application state will require an application developer to hold tokens until that state is deleted. If state is never deleted then the tokens are effectively removed from circulation.
 
+대역폭과 연산 능력은 위임이 가능하지만, 애플리케이션 상태가 제거되기 전까지 애플리케이션 상태 저장소 유지를 위한 토큰을 보유해야 합니다. 만약에 상태가 영원히 유지된다면, 해당 토큰은 순환과정을 통해 효과적으로 제거됩니다.
+
 Every user account requires a certain amount of storage; therefore, every account must maintain a minimum balance. As storage capacity of the network increases this minimum required balance will fall.
+
+모든 사용자 계정은 어느정도의 저장 공간이 필요합니다. 그러므로 모든 계정은 최소한의 잔고를 가지고 있어야 합니다. 네트워크의 저장 능력이 증가하면 최소 잔고는 줄어들 것입니다.
 
 ## Block Rewards
 
+## 블록 보상
+
 EOS.IO software awards new tokens to a block producer every time a block is produced.  The number of tokens created is determined by the median of the desired pay published by all block producers. The EOS.IO software may be configured to enforce a cap on producer awards such that the total annual increase in token supply does not exceed 5%.  
+
+EOS.IO 소프트웨어는 블록이 생성될 때 마다 블록 생성자에게 보상으로 토큰을 부여합니다. 생성되는 토큰의 양은 블록 생산자들이 제출한 요구 금액의 중앙값으로 결정됩니다. EOS.IO 소프트웨어는 생산자 보상의 총량이 연 토큰 증가분의 5%를 넘지 못하도록 제한을 걸 수 있습니다.
 
 ## Community Benefit Applications
 
+## 커뮤니티 혜택 애플리케이션
+
 In addition to electing block producers, based on the EOS.IO software, users can elect 3 community benefit applications also known as smart contracts. These 3 applications will receive tokens of up to a configured percent of the token supply per annum minus the tokens that have been paid to block producers. These smart contracts will receive tokens proportional to the votes each application has received from token holders. The elected applications or smart contracts can be replaced by newly elected applications or smart contracts by token holders.
+
+블록 생산자를 선출함과 더불어, EOS.IO 소프트웨어의 사용자 별로 3개의 커뮤니티 애플리케이션(스마트 컨트렉트)을 선택할 수 있습니다. 커뮤니티 애플리케이션은 설정된 연간 토큰 공급량에서 블록 생산자에게 지불한 양을 제외한 토큰을 가지게 됩니다. 이 스마트 컨트렉트가 가지는 토큰의 비율은 애플리케이션에 대한 투표를 통해 정해지고 토큰 소유자들로부터 비율만큼의 토큰을 받게 됩니다. 선택받은 애플리케이션 혹은 스마트 컨트렉트는 토큰 소유자들의 투표 결과에 따라 바뀔 수 있습니다.
 
 # Governance
 
