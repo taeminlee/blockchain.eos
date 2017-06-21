@@ -6,7 +6,7 @@
 
 **Abstract:** The EOS.IO software introduces a new blockchain architecture designed to enable vertical and horizontal scaling of decentralized applications. This is achieved by creating an operating system-like construct upon which applications can be built. The software provides accounts, authentication, databases, asynchronous communication and the scheduling of applications across hundreds of CPU cores or clusters. The resulting technology is a blockchain architecture that scales to millions of transactions per second, eliminates user fees, and allows for quick and easy deployment of decentralized applications.
 
-**초록:** EOS.IO 소프트웨어는 탈중앙화 애플리케이션의 수직 및 수평 확장이 가능하도록 디자인된 새로운 블록체인 아키텍처를 선사합니다. 이는 애플리케이션을 구축할 수 있는 운영체제와 유사한 구조를 생성함으로 완성됩니다. 본 소프트웨어는 수백개의 CPU 코어 또는 클러스터에 계정(accounts), 인증(authentication), 데이터베이스(databases), 비동기 통신(asynchronous communication), 애플리케이션 스케쥴링(application scheduling) 기능을 제공합니다. 결과기술은 초장 수백만건의 트랜잭션 처리 능력을 갖춘 블록체인 아키텍처이며, 사용자의 추가 비용은 없을 것이며, 탈중앙화 애플리케이션의 빠르고 쉬운 구현을 가능하게 할 것입니다.
+**초록:** EOS.IO 소프트웨어는 탈중앙화 애플리케이션의 수직 및 수평 확장이 가능하도록 디자인된 새로운 블록체인 아키텍처를 선사합니다. 이는 애플리케이션을 구축할 수 있는 운영체제와 유사한 구조를 생성함으로 완성됩니다. 본 소프트웨어는 수백 개의 CPU 코어 또는 클러스터에 계정(accounts), 인증(authentication), 데이터베이스(databases), 비동기 통신(asynchronous communication), 애플리케이션 스케쥴링(application scheduling) 기능을 제공합니다. 결과기술은 초당 수백만 건의 트랜잭션 처리 능력을 갖춘 블록체인 아키텍처이며, 사용자의 추가 비용은 없을 것이며, 탈중앙화 애플리케이션의 빠르고 쉬운 구현을 가능하게 할 것입니다.
 
 Copyright © 2017 block.one
 
@@ -14,86 +14,122 @@ Copyright © 2017 block.one
 
 Without permission, anyone may use, reproduce or distribute any material in this whitepaper for non-commercial and educational use (i.e., other than for a fee or for commercial purposes) provided that the original source and the applicable copyright notice are cited.
 
-누구든지 허가 없이 원래의 출처와 해당 저작권 고지가 언급 된 경우 비영리적이고 교육적인 용도 (즉, 유료 또는 상업적 목적 이외의 목적)로 본 백서의 자료를 사용, 복제 또는 배포 할 수 있습니다.
+누구든지 허가 없이 원래의 출처와 해당 저작권 고지가 언급된 경우 비영리적이고 교육적인 용도 (즉, 유료 또는 상업적 목적 이외의 목적)로 본 백서의 자료를 사용, 복제 또는 배포할 수 있습니다.
 
 **DISCLAIMER:**  This draft EOS.IO Technical Whitepaper is for information purposes only. block.one does not guarantee the accuracy of the conclusions reached in this paper, and the whitepaper is provided “as is” with no representations and warranties, express or implied, whatsoever, including, but not limited to: (i) warranties of merchantability, fitness for a particular purpose, title or noninfringement; (ii) that the contents of this whitepaper are free from error or suitable for any purpose; and (iii) that such contents will not infringe third-party rights. All warranties are expressly disclaimed. block.one and its affiliates expressly disclaim all liability for and damages of any kind arising out of the use, reference to, or reliance on any information contained in this whitepaper, even if advised of the possibility of such damages.  In no event will block.one or its affiliates be liable to any person or entity for any direct, indirect, special or consequential damages for the use of, reference to, or reliance on this whitepaper or any of the content contained herein.
 
-**면책 조항:** EOS.IO 기술 백서 초안은 오직 정보 제공의 목적으로서 제공됩니다. block.one은 이 백서에서 도달한 결론의 정확성을 보장하지 않으며, 백서는 "있는 그대로"제공되며 이는 (단, 이에 한정되지는 않음) 명시적이거나 묵시적인 것으로서 어떠한 보증도하지 않습니다. (i) 상품성에 대한 보증 , 특정 목적을 위한 적합성, 타이틀 또는 법규의 위반이 없음; (ii) 본 백서의 내용에 오류가 없거나 어떤 목적에 적합하다는 것; (iii) 그러한 내용이 제3자의 권리를 침해하지 않을 것입니다. 명시적으로 어떠한 보증도 되지 않습니다. block.one과 그 계열사는 이 백서에 포함 된 정보의 사용, 참조 또는 신뢰로 인해 발생하는 모든 종류의 손해에 대해 명시적으로 책임을 지지 않습니다. 어떠한 경우에도 본 백서 또는 여기에 포함 된 내용의 사용, 참조 또는 의존에 대한 직접적, 간접적, 특수적 또는 결과적 손해에 대해 어떠한 개인이나 단체에 대해서도 책임을 지지 않습니다.
+**면책 조항:** EOS.IO 기술 백서 초안은 오직 정보 제공의 목적으로써 제공됩니다. block.one은 이 백서에서 도달한 결론의 정확성을 보장하지 않으며, 백서는 "있는 그대로" 제공되며 이는 (단, 이에 한정되지는 않음) 명시적이거나 묵시적인 것으로서 어떠한 보증도 하지 않습니다. (i) 상품성에 대한 보증, 특정 목적을 위한 적합성, 타이틀 또는 법규의 위반이 없음; (ii) 본 백서의 내용에 오류가 없거나 어떤 목적에 적합하다는 것; (iii) 그러한 내용이 제3자의 권리를 침해하지 않을 것입니다. 명시적으로 어떠한 보증도 되지 않습니다. block.one과 그 계열사는 이 백서에 포함된 정보의 사용, 참조 또는 신뢰로 인해 발생하는 모든 종류의 손해에 대해 명시적으로 책임을 지지 않습니다. 어떤 경우에도 본 백서 또는 여기에 포함된 내용의 사용, 참조 또는 의존에 대한 직접적, 간접적, 특수적 또는 결과적 손해에 대해 어떠한 개인이나 단체에 대해서도 책임을 지지 않습니다.
+
+<!-- TOC -->
 
 - [Background](#background)
-- [배경](#background)
+- [EOS.IO 탄생 배경 (Background)](#eosio-탄생-배경-background)
 - [Requirements for Blockchain Applications](#requirements-for-blockchain-applications)
-- [블록체인 애플리케이션의 요구사항](#requirements-for-blockchain-applications)
-  * [Support Millions of Users](#support-millions-of-users)
-  * [수백만 사용자 허용](#support-millions-of-users)
-  * [Free Usage](#free-usage)
-  * [자유로운 사용](#free-usage)
-  * [Easy Upgrades and Bug Recovery](#easy-upgrades-and-bug-recovery)
-  * [간편한 업그레이드 및 버그 해소](#easy-upgrades-and-bug-recovery)
-  * [Low Latency](#low-latency)
-  * [낮은 지연성](#low-latency)
-  * [Sequential Performance](#sequential-performance)
-  * [순차 처리 성능](#sequential-performance)
-  * [Parallel Performance](#parallel-performance)
-  * [병렬 처리 성능](#parallel-performance)
-- [Consensus Algorithm (DPOS)](#consensus-algorithm--dpos-)
-- [합의 알고리즘 (DPOS)](#consensus-algorithm--dpos-)
-  * [Transaction Confirmation](#transaction-confirmation)
-  * [트랜잭션 확인](#transaction-confirmation)
-  * [Transaction as Proof of Stake (TaPoS)](#transaction-as-proof-of-stake--tapos-)
-  * [Transaction as 지분증명 (TaPoS)](#transaction-as-proof-of-stake--tapos-)
+- [블록체인 애플리케이션의 요구사항 (Requirements for Blockchain Application)](#블록체인-애플리케이션의-요구사항-requirements-for-blockchain-application)
+    - [Support Millions of Users](#support-millions-of-users)
+    - [1. 수백만의 사용자 허용 (Support Millions of Users)](#1-수백만의-사용자-허용-support-millions-of-users)
+    - [Free Usage](#free-usage)
+    - [2. 무료 사용 (Free Usage)](#2-무료-사용-free-usage)
+    - [Easy Upgrades and Bug Recovery](#easy-upgrades-and-bug-recovery)
+    - [3. 간편한 업그레이드 및 버그 해소 (Easy upgrades and Bug Recovery)](#3-간편한-업그레이드-및-버그-해소-easy-upgrades-and-bug-recovery)
+    - [Low Latency](#low-latency)
+    - [4. 짧은 지연 시간 (Low Latency)](#4-짧은-지연-시간-low-latency)
+    - [Sequential Performance](#sequential-performance)
+    - [5. 순차(sequential) 처리 성능 (Sequential Performance)](#5-순차sequential-처리-성능-sequential-performance)
+    - [Parallel Performance](#parallel-performance)
+    - [6. 병렬 처리 성능 (Parallel Performance)](#6-병렬-처리-성능-parallel-performance)
+- [Consensus Algorithm (DPOS)](#consensus-algorithm-dpos)
+- [합의 알고리즘 (DPOS) (Consensus Algorithm)](#합의-알고리즘-dpos-consensus-algorithm)
+    - [Transaction Confirmation](#transaction-confirmation)
+    - [트랜잭션 확인 (Transaction Confirmation)](#트랜잭션-확인-transaction-confirmation)
+    - [Transaction as Proof of Stake (TaPoS)](#transaction-as-proof-of-stake-tapos)
+    - [트랜잭션 기반 지분 증명 (Transaction as Proof of Stake, TaPoS)](#트랜잭션-기반-지분-증명-transaction-as-proof-of-stake-tapos)
 - [Accounts](#accounts)
-- [계정](#accounts)
-  * [Messages & Handlers](#messages---handlers)
-  * [메시지와 핸들러](#messages---handlers)
-  * [Role Based Permission Management](#role-based-permission-management)
-  * [규칙 기반 권한 관리](#role-based-permission-management)
-    + [Named Permission Levels](#named-permission-levels)
-    + [Named Message Handler Groups](#named-message-handler-groups)
-    + [Permission Mapping](#permission-mapping)
-    + [Evaluating Permissions](#evaluating-permissions)
-      - [Default Permission Groups](#default-permission-groups)
-      - [Parallel Evaluation of Permissions](#parallel-evaluation-of-permissions)
-  * [Messages with Mandatory Delay](#messages-with-mandatory-delay)
-  * [Recovery from Stolen Keys](#recovery-from-stolen-keys)
+- [계정 (Accounts)](#계정-accounts)
+    - [Messages & Handlers](#messages--handlers)
+    - [메시지와 처리기 (Messages & Handlers)](#메시지와-처리기-messages--handlers)
+    - [Role Based Permission Management](#role-based-permission-management)
+    - [역할 기반 권한 관리 (Role Based Permission Management)](#역할-기반-권한-관리-role-based-permission-management)
+        - [Named Permission Levels](#named-permission-levels)
+        - [명명된 권한 수준 (Named Permission Levels)](#명명된-권한-수준-named-permission-levels)
+        - [Named Message Handler Groups](#named-message-handler-groups)
+        - [명명된 메시지 처리기 그룹 (Named Message Handler Groups)](#명명된-메시지-처리기-그룹-named-message-handler-groups)
+        - [Permission Mapping](#permission-mapping)
+        - [권한 매핑 (Permission Mapping)](#권한-매핑-permission-mapping)
+        - [Evaluating Permissions](#evaluating-permissions)
+        - [권한 검사 (Evaluating Permissions)](#권한-검사-evaluating-permissions)
+            - [Default Permission Groups](#default-permission-groups)
+            - [기본 권한 그룹( Default Permission Groups)](#기본-권한-그룹-default-permission-groups)
+            - [Parallel Evaluation of Permissions](#parallel-evaluation-of-permissions)
+            - [권한 검사의 병렬화 (Parallel Evaluation of Permissions)](#권한-검사의-병렬화-parallel-evaluation-of-permissions)
+    - [Messages with Mandatory Delay](#messages-with-mandatory-delay)
+    - [메시지의 필수 지연 시간 (Messages with Mandatory Delay)](#메시지의-필수-지연-시간-messages-with-mandatory-delay)
+    - [Recovery from Stolen Keys](#recovery-from-stolen-keys)
+    - [키 도난 상태에서의 복구 (Recovery from Stolen Keys)](#키-도난-상태에서의-복구-recovery-from-stolen-keys)
 - [Deterministic Parallel Execution of Applications](#deterministic-parallel-execution-of-applications)
-  * [Minimizing Communication Latency](#minimizing-communication-latency)
-  * [Read-Only Message Handlers](#read-only-message-handlers)
-  * [Atomic Transactions with Multiple Accounts](#atomic-transactions-with-multiple-accounts)
-  * [Partial Evaluation of Blockchain State](#partial-evaluation-of-blockchain-state)
-  * [Subjective Best Effort Scheduling](#subjective-best-effort-scheduling)
+- [애플리케이션의 결정론적 병렬 실행 (Deterministic Parallel Execution of Applications)](#애플리케이션의-결정론적-병렬-실행-deterministic-parallel-execution-of-applications)
+    - [Minimizing Communication Latency](#minimizing-communication-latency)
+    - [통신 지연 최소화 (Minimizing Communication Latency)](#통신-지연-최소화-minimizing-communication-latency)
+    - [Read-Only Message Handlers](#read-only-message-handlers)
+    - [읽기 전용 메시지 처리기 (Read-Only Message Handlers)](#읽기-전용-메시지-처리기-read-only-message-handlers)
+    - [Atomic Transactions with Multiple Accounts](#atomic-transactions-with-multiple-accounts)
+    - [다중 계정의 원자적 트랜잭션 (Atomic Transactions with Multiple Accounts)](#다중-계정의-원자적-트랜잭션-atomic-transactions-with-multiple-accounts)
+    - [Partial Evaluation of Blockchain State](#partial-evaluation-of-blockchain-state)
+    - [블록체인 상태의 부분 검사 (Partial Evaluation of Blockchain State)](#블록체인-상태의-부분-검사-partial-evaluation-of-blockchain-state)
+    - [Subjective Best Effort Scheduling](#subjective-best-effort-scheduling)
+    - [주관적 최선 스케쥴링 (Subjective Best Effort Scheduling)](#주관적-최선-스케쥴링-subjective-best-effort-scheduling)
 - [Token Model and Resource Usage](#token-model-and-resource-usage)
-  * [Objective and Subjective Measurements](#objective-and-subjective-measurements)
-  * [Receiver Pays](#receiver-pays)
-  * [Delegating Capacity](#delegating-capacity)
-  * [Separating Transaction costs from Token Value](#separating-transaction-costs-from-token-value)
-  * [State Storage Costs](#state-storage-costs)
-  * [Block Rewards](#block-rewards)
-  * [Community Benefit Applications](#community-benefit-applications)
+- [토큰 모델과 리소스 사용 (Token Model and Resource Usage)](#토큰-모델과-리소스-사용-token-model-and-resource-usage)
+    - [Objective and Subjective Measurements](#objective-and-subjective-measurements)
+    - [객관적 측정과 주관적 측정 (Objective and Subjective Measurements)](#객관적-측정과-주관적-측정-objective-and-subjective-measurements)
+    - [Receiver Pays](#receiver-pays)
+    - [수취인 부담 (Receiver Pays)](#수취인-부담-receiver-pays)
+    - [Delegating Capacity](#delegating-capacity)
+    - [리소스 허용량 위임 (Delegating Capacity)](#리소스-허용량-위임-delegating-capacity)
+    - [Separating Transaction costs from Token Value](#separating-transaction-costs-from-token-value)
+    - [토큰의 가치와 트랜잭션 비용의 분리 (Separating Transaction costs from Token Value)](#토큰의-가치와-트랜잭션-비용의-분리-separating-transaction-costs-from-token-value)
+    - [State Storage Costs](#state-storage-costs)
+    - [상태 저장 비용 (State Storage Costs)](#상태-저장-비용-state-storage-costs)
+    - [Block Rewards](#block-rewards)
+    - [블록 보상 (Block Rewards)](#블록-보상-block-rewards)
+    - [Community Benefit Applications](#community-benefit-applications)
+    - [커뮤니티 혜택 애플리케이션 (Community Benefit Applications)](#커뮤니티-혜택-애플리케이션-community-benefit-applications)
 - [Governance](#governance)
-  * [Freezing Accounts](#freezing-accounts)
-  * [Changing Account Code](#changing-account-code)
-  * [Constitution](#constitution)
-  * [Upgrading the Protocol & Constitution](#upgrading-the-protocol---constitution)
-    + [Emergency Changes](#emergency-changes)
-- [Scripts & Virtual Machines](#scripts---virtual-machines)
-  * [Schema Defined Messages](#schema-defined-messages)
-  * [Schema Defined Database](#schema-defined-database)
-  * [Separating Authentication from Application](#separating-authentication-from-application)
-  * [애플리케이션과 인증 분리](#separating-authentication-from-application)  
-  * [Virtual Machine Independent Architecture](#virtual-machine-independent-architecture)
-    + [Web Assembly](#web-assembly)
-    + [Ethereum Virtual Machine (EVM)](#ethereum-virtual-machine--evm-)
+- [거버넌스 (Governance)](#거버넌스-governance)
+    - [Freezing Accounts](#freezing-accounts)
+    - [계정 동결 (Freezing Accounts)](#계정-동결-freezing-accounts)
+    - [Changing Account Code](#changing-account-code)
+    - [계정 코드 변경 (Changing Account Code)](#계정-코드-변경-changing-account-code)
+    - [Constitution](#constitution)
+    - [헌법 (Constitution)](#헌법-constitution)
+    - [Upgrading the Protocol & Constitution](#upgrading-the-protocol--constitution)
+    - [프로토콜과 헌법의 개정 (Upgrading the Protocol & Constitution)](#프로토콜과-헌법의-개정-upgrading-the-protocol--constitution)
+        - [Emergency Changes](#emergency-changes)
+        - [응급 변경 (Emergency Changes)](#응급-변경-emergency-changes)
+- [Scripts & Virtual Machines](#scripts--virtual-machines)
+- [스크립트와 가상 머신 (Scripts & Virtual Machines)](#스크립트와-가상-머신-scripts--virtual-machines)
+    - [Schema Defined Messages](#schema-defined-messages)
+    - [스키마 정의 매시지 (Schema Defined Messages)](#스키마-정의-매시지-schema-defined-messages)
+    - [Schema Defined Database](#schema-defined-database)
+    - [스키마 정의 데이터베이스 (Schema Defined Database)](#스키마-정의-데이터베이스-schema-defined-database)
+    - [Separating Authentication from Application](#separating-authentication-from-application)
+    - [애플리케이션과 인증 분리 (Separating Authentication from Application)](#애플리케이션과-인증-분리-separating-authentication-from-application)
+    - [Virtual Machine Independent Architecture](#virtual-machine-independent-architecture)
+    - [가상 머신 독립 아키텍처 (Virtual Machine Independent Architecture)](#가상-머신-독립-아키텍처-virtual-machine-independent-architecture)
+        - [Web Assembly (WASM)](#web-assembly-wasm)
+        - [웹어셈블리 (WASM; Web Assembly)](#웹어셈블리-wasm-web-assembly)
+        - [Ethereum Virtual Machine (EVM)](#ethereum-virtual-machine-evm)
+        - [이더리움 가상 머신 (EVM; Ethereum Virtual Machine)](#이더리움-가상-머신-evm-ethereum-virtual-machine)
 - [Inter Blockchain Communication](#inter-blockchain-communication)
-- [블록체인 내부 통신](#inter-blockchain-communication)
-  * [Merkle Proofs for Light Client Validation (LCV)](#merkle-proofs-for-light-client-validation--lcv-)
-  * [경량 클라이언트 검증(LCV)를 위한 머클 증명](#merkle-proofs-for-light-client-validation--lcv-)
-  * [체인간 통신 지연](#latency-of-interchain-communication)
-  * [Latency of Interchain Communication](#latency-of-interchain-communication)
-  * [완전성 증명](#proof-of-completeness)
-  * [Proof of Completeness](#proof-of-completeness)
+- [블록체인 간 통신 (Inter Blockchain Communication)](#블록체인-간-통신-inter-blockchain-communication)
+    - [Merkle Proofs for Light Client Validation (LCV)](#merkle-proofs-for-light-client-validation-lcv)
+    - [경량화된 클라이언트 검증(LCV)을 위한 머클 증명 (Merkle Proofs for Light Client Validation)](#경량화된-클라이언트-검증lcv을-위한-머클-증명-merkle-proofs-for-light-client-validation)
+    - [Latency of Interchain Communication](#latency-of-interchain-communication)
+    - [체인 간 통신의 지연 시간 (Latency of Interchain Communication)](#체인-간-통신의-지연-시간-latency-of-interchain-communication)
+    - [Proof of Completeness](#proof-of-completeness)
+    - [완전성 증명 (Proof of Completeness)](#완전성-증명-proof-of-completeness)
 - [Conclusion](#conclusion)
-- [결론](#conclusion)
+- [결론 (Conclusion)](#결론-conclusion)
 
 # Background
 
@@ -105,7 +141,7 @@ Blockchain technology was introduced in 2008 with the launch of the bitcoin curr
 
 While a number of blockchain platforms have struggled to support functional decentralized applications, application specific blockchains such as the BitShares decentralized exchange (2014) and Steem social media platform (2016) have become heavily used blockchains with tens of thousands of daily active users. They have achieved this by increasing performance to thousands of transactions per second, reducing latency to 1.5 seconds, eliminating fees, and providing a user experience similar to those currently provided by existing centralized services.
 
-다수의 블록체인 플랫폼은 기능성이 있는 탈중앙화 애플리케이션을 지원하기 위해 노력하였으며, BitShares 탈중앙화 거래소(2014) 및 Steem 소셜 미디어 플랫폼(2016)과 같은 애플리케이션 특화 블록체인은 수만명의 일일 사용자를 포용하도록 성장하였습니다. 이는 초당 수천건의 트랜잭션 지원과 1.5초의 지연시간과 같은 성능 향상, 사용 수수료의 제거, 현재 서비스되는 중앙 집중형 서비스와 유사한 수준의 사용자 경험 제공을 통해 가능하게 되었습니다.
+다수의 블록체인 플랫폼은 기능성이 있는 탈중앙화 애플리케이션을 지원하기 위해 노력하였으며, BitShares 탈중앙화 거래소(2014) 및 Steem 소셜 미디어 플랫폼(2016)과 같은 애플리케이션 특화 블록체인은 수만 명의 일일 사용자를 포용하도록 성장하였습니다. 이는 초당 수천 건의 트랜잭션 지원과 1.5초의 지연시간과 같은 성능 향상, 사용 수수료의 제거, 현재 서비스되는 중앙 집중형 서비스와 유사한 수준의 사용자 경험 제공을 통해 가능하게 되었습니다.
 
 Existing blockchain platforms are burdened by large fees and limited computational capacity that prevent widespread blockchain adoption.
 
@@ -134,7 +170,7 @@ Ebay, Uber, AirBnB, Facebook과 같은 기존 서비스와 경쟁력을 갖추�
 
 Application developers need the flexibility to offer users free services; Users should not have to pay in order to use the platform or benefit from its services. A blockchain platform that is free to use for users will likely gain more widespread adoption. Developers and businesses can then create effective monetization strategies.
 
-애플리케이션 개발자는 사용자에게 무료로 서비스를 할 수 있어야 합니다. 사용자는 플랫폼의 이용과 서비스의 혜택을 무료로 누릴 수 있어야 합니다. 사용자가 무료로 이용할 수 있는 블록체인 플랫폼이 더 널리 전파될 것입니다. 빠른 대중화로 인해 기업가와 개발자는 효율적인 수익 창출 전략을 만들어 낼 수 있을 것입니다.
+애플리케이션 개발자는 사용자에게 무료로 서비스 할 수 있어야 합니다. 사용자는 플랫폼의 이용과 서비스의 혜택을 무료로 누릴 수 있어야 합니다. 사용자가 무료로 이용할 수 있는 블록체인 플랫폼이 더 널리 전파될 것입니다. 빠른 대중화로 인해 기업가와 개발자는 효율적인 수익 창출 전략을 만들어 낼 수 있을 것입니다.
 
 ## Easy Upgrades and Bug Recovery
 
