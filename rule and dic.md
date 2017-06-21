@@ -39,7 +39,7 @@
 |resource                       |리소스                        |음차하여 사용|
 |governance                     |거버넌스                       |음차하여 사용|
 |virtual machine                |가상 머신                       |반 음차하여 사용|
-|web assembly                   |웹 어셈블리                 |신규 웹 표준, 음차하여 사용|
+|web assembly                   |웹어셈블리                 |신규 웹 표준, 음차하여 사용|
 
 ## Music for work
 

@@ -338,7 +338,7 @@ EOS.IO 소프트웨어는 타 계정으로 전송 가능한 메시지 타입을 
 
 Using the EOS.IO software, accounts can define named permission levels each of which can be derived from higher level named permissions. Each named permission level defines an authority; an authority is a threshold multi-signature check consisting of keys and/or named permission levels of other accounts. For example, an account's "Friend" permission level can be set for the account to be controlled equally by any of the account's friends.
 
-EOS.IO 소프트웨어를 이용하여 계정은 상위 명명된 권한 수준들로부터 파생되는 명명된 권한 수준을 정의할 수 있습니다. 각각의 명명된 권한 수준은 인증 방식(authority)을 정의합니다. 인증 방식은 다른 계정의 키와 명명된 권한 수준의 자유로운 조합에 대한 역치 다중 서명 확인(threshold multi-signature check)입니다. 예를 들어, 한 계정의 "친구" 권한 수준은 해당 계정에 대해 어떠한 친구 계정으로도 동등하게 제어될 수 있게 할 수 있습니다.
+EOS.IO 소프트웨어를 이용하여 계정은 상위 명명된 권한 수준들로부터 파생되는 명명된 권한 수준을 정의할 수 있습니다. 각각의 명명된 권한 수준은 인증 방식(authority)을 정의합니다. 인증 방식은 다른 계정의 키와 명명된 권한 수준의 자유로운 조합에 대한 역치 다중서명 확인(threshold multi-signature check)입니다. 예를 들어, 한 계정의 "친구" 권한 수준은 해당 계정에 대해 어떠한 친구 계정으로도 동등하게 제어될 수 있게 할 수 있습니다.
 
 Another example is the Steem blockchain which has three hard-coded named permission levels: owner, active, and posting. The posting permission can only perform social actions such as voting and posting, while the active permission can do everything except change the owner.  The owner permission is meant for cold storage and is able to do everything.  EOS.IO generalizes this concept by allowing each account holder to define their own hierarchy as well as the grouping of actions.
 
@@ -378,7 +378,7 @@ When delivering a message of type "**Action**", from **@alice** to **@bob** the 
 
 Once a mapping is identified then signing authority is validated using the threshold multi-signature process and the authority associated with the named permission. If that fails, then it traverses up to the parent permission and ultimately to the owner permission, **@alice.owner**.  
 
-만약 매핑이 확인이 되면 역치 다중 서명 절차와 명명된 권한에 대한 인증을 통해 서명된 인증에 대한 유효성을 검증합니다. 실패할 경우 상위 권한으로 검사를 수행하며 최종적으로 소유자 권한인 **@앨리스.소유자(owner)**까지 검사를 진행합니다.
+만약 매핑이 확인이 되면 역치 다중서명 절차와 명명된 권한에 대한 인증을 통해 서명된 인증에 대한 유효성을 검증합니다. 실패할 경우 상위 권한으로 검사를 수행하며 최종적으로 소유자 권한인 **@앨리스.소유자(owner)**까지 검사를 진행합니다.
 
 <img align="center" src="http://eos.io/wpimg/diagram2grayscale2.jpg" width="845.85px" height="500px" />
 
@@ -436,7 +436,7 @@ There is nothing for the hacker to gain by attempting to go through the recovery
 
 This process is also very different from a simple multi-signature arrangement. With a multi-signature transaction, there is another company that is party to every transaction that is executed, but with the recovery process the agent is only a party to the recovery process and has no power over the day-to-day transactions. This dramatically reduces costs and legal liabilities for everyone involved.
 
-이 과정은 단순한 다중 서명 합의(multi-signature arrangement)와 매우 다릅니다. 다중 서명 트랜잭션의 경우 모든 트랜잭션에 관여하는 별도의 회사가 존재하는 것입니다. 복구 처리 과정을 이용하면 복구 협력자는 복구과정에만 관여하며 트랜잭션에 관해서는 어떠한 영향력도 행사하지 않습니다. 이로 인해 참여자들에 대한 비용과 법적 책임을 큰폭으로 감소시킬 수 있습니다.
+이 과정은 단순한 다중서명 합의(multi-signature arrangement)와 매우 다릅니다. 다중서명 트랜잭션의 경우 모든 트랜잭션에 관여하는 별도의 회사가 존재하는 것입니다. 복구 처리 과정을 이용하면 복구 협력자는 복구과정에만 관여하며 트랜잭션에 관해서는 어떠한 영향력도 행사하지 않습니다. 이로 인해 참여자들에 대한 비용과 법적 책임을 큰폭으로 감소시킬 수 있습니다.
 
 # Deterministic Parallel Execution of Applications
 
@@ -828,15 +828,15 @@ EOS.IO 소프트웨어의 설계 목적은 다수의 가상 머신을 운용하�
 
 ### Web Assembly (WASM)
 
-### 웹 어셈블리 (WASM; Web Assembly)
+### 웹어셈블리 (WASM; Web Assembly)
 
 Web Assembly is an emerging web standard for building high performance web applications. With a few small modifications Web Assembly can be made deterministic and sandboxed. The benefit of Web Assembly is the widespread support from industry and that it enables contracts to be developed in familiar languages such as C or C++.
 
-웹 어셈블리는 고성능의 웹 애플리케이션을 제작하기 위하여 새로이 등장한 웹 표준입니다. 웹 어셈블리을 일부 수정하여 결정론적이며 샌드박스인 형태로 만들 수 있습니다. 웹 어셈블리의 장점은 산업 현장에서 폭넓게 수용되고 있으며, 친숙한 언어인 C나 C++로 컨트렉트를 개발할 수 있습니다.
+웹어셈블리는 고성능의 웹 애플리케이션을 제작하기 위하여 새로이 등장한 웹 표준입니다. 웹어셈블리을 일부 수정하여 결정론적이며 샌드박스인 형태로 만들 수 있습니다. 웹어셈블리의 장점은 산업 현장에서 폭넓게 수용되고 있으며, 친숙한 언어인 C나 C++로 컨트렉트를 개발할 수 있습니다.
 
 Ethereum developers have already begun modifying Web Assembly to provide suitable sandboxing and determinism in with their [Ethereum flavored Web Assembly (WASM)](https://github.com/ewasm/design). This approach can be easily adapted and integrated with EOS.IO software.  
 
-이더리움 개발자들은 [Ethereum flavored Web Assembly (EWASM)](https://github.com/ewasm/design)으로 웹 어셈블리를 수정하여 샌드박싱하고 결정론적으로 변환하는 작업에 착수하였습니다. EWASM은 EOS.IO 소프트웨어에 쉽게 적용하고 통합할 수 있습니다.
+이더리움 개발자들은 [Ethereum flavored Web Assembly (EWASM)](https://github.com/ewasm/design)으로 웹어셈블리를 수정하여 샌드박싱하고 결정론적으로 변환하는 작업에 착수하였습니다. EWASM은 EOS.IO 소프트웨어에 쉽게 적용하고 통합할 수 있습니다.
 
 ### Ethereum Virtual Machine (EVM)
 
@@ -848,11 +848,17 @@ This virtual machine has been used for most existing smart contracts and could b
 
 # Inter Blockchain Communication
 
+# 블록체인 간 통신 (Inter Blockchain Communication)
+
 EOS.IO software is designed to facilitate inter-blockchain communication. This is achieved by making it easy to generate proof of message existence and proof of message sequence. These proofs combined with an application architecture designed around message passing enables the details of inter-blockchain communication and proof validation to be hidden from application developers.
+
+EOS.IO 소프트웨어는 블록체인 간 통신이 용이하도록 설계되었습니다. 이는 메시지 존재 증명과 메시지 순서 증명의 생성을 손쉽게 함으로 이루어집니다. 이러한 증명들은 메시지 전달을 감싸는 애플리케이션 아키텍처와 결합하여 블록체인간 통신과 증명 검증 과정이 애플리케이션 개발자로부터 은닉되도록 합니다.
 
 <img align="right" src="http://eos.io/wpimg/Diagram1.jpg" width="362.84px" height="500px" />
 
 ## Merkle Proofs for Light Client Validation (LCV)
+
+## 경량화된 클라이언트 검증(LCV)을 위한 머클 증명 (Merkle Proofs for Light Client Validation)
 
 Integrating with other blockchains is much easier if clients do not need to process all transactions.  After all, an exchange only cares about transfers in and out of the exchange and nothing more.  It would also be ideal if the exchange chain could utilize lightweight merkle proofs of deposit rather than having to trust its own block producers entirely. At the very least a chain's block producers would like to maintain the smallest possible overhead when synchronizing with another blockchain.
 
@@ -868,14 +874,22 @@ When it comes time to validate proofs on other chains there are a wide variety o
 
 After a certain density of interconnectedness it becomes more efficient to simply have one chain contain the entire block history of another chain and eliminate the need for proofs all together. For performance reasons, it is ideal to minimize the frequency of inter-chain proofs.
 
-## Latency of Interchain Communication   
+## Latency of Interchain Communication
+
+## 체인 간 통신의 지연 시간 (Latency of Interchain Communication)
 
 When communicating with another outside blockchain, block producers must wait until there is 100% certainty that a transaction has been irreversibly confirmed by the other blockchain before accepting it as a valid input. Using EOS.IO software and DPOS with 3 second blocks and 21 producers, this takes approximately 45 seconds.  If a chain's block producers do not wait for irreversibility it would be like an exchange accepting a deposit that was later reversed and could impact the validity of the a chain's consensus.
 
 ## Proof of Completeness
 
+## 완전성 증명 (Proof of Completeness)
+
 When using merkle proofs from outside blockchains, there is a significant difference between knowing that all transactions processed are valid and knowing that no transactions have been skipped or omitted.  While it is impossible to prove that all of the most recent transactions are known, it is possible to prove that there have been no gaps in the transaction history.  The EOS.IO software facilitates this by assigning a sequence number to every message delivered to every account. A user can use these sequence numbers to prove that all messages intended for a particular account have been processed and that they were processed in order.
 
 # Conclusion
 
+# 결론 (Conclusion)
+
 The EOS.IO software is designed from experience with proven concepts and best practices, and represents fundamental advancements in blockchain technology. The software is part of a holistic blueprint for a globally scalable blockchain society in which decentralised applications can be easily deployed and governed.
+
+EOS.IO 소프트웨어는 컨셉의 검증과 실제 구현의 경험으로 부터 디자인 되었습니다. 또한 블록체인 기술의 근원적인 부분의 진보를 나타냅니다. 이 소프트웨어는 전 세계적 규모의 블록체인의 탈중앙화 애플리케이션을 쉽게 구현하고 운영(governing)하는 전체적인 청사진의 일부입니다.
