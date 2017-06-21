@@ -30,7 +30,7 @@
 |smart contract                 |스마트 컨트렉트               ||
 |governance                     |거버넌스                       ||
 |constitution                   |헌법                         ||
-|threshold multi-signature check|역치 다중 서명 확인            |분산형 인증 기술 동향; t-n threshold scheme; n명의 참가자 중 t명이 합의하여야 복호화됨|
+|threshold multi-signature check|역치 다중서명 확인            |분산형 인증 기술 동향; t-n threshold scheme; n명의 참가자 중 t명이 합의하여야 복호화됨|
 |hierarchical authority structure|위계적 인증 구조             |기업의 의사결정 구조|
 |multi-user control             |복수 매니저 운용              |맥락상 멀티 매니저 펀드를 뜻하는 것으로 보임|
 |private database               |프라이빗 데이터베이스        |개인 + 비공개의 의미를 모두 담아야 하는데 한번에 표현할 단어를 아직 못찾아 음차하였음|

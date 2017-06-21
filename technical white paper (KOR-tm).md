@@ -854,25 +854,39 @@ EOS.IO software is designed to facilitate inter-blockchain communication. This i
 
 EOS.IO 소프트웨어는 블록체인 간 통신이 용이하도록 설계되었습니다. 이는 메시지 존재 증명과 메시지 순서 증명의 생성을 손쉽게 함으로 이루어집니다. 이러한 증명들은 메시지 전달을 감싸는 애플리케이션 아키텍처와 결합하여 블록체인간 통신과 증명 검증 과정이 애플리케이션 개발자로부터 은닉되도록 합니다.
 
-<img align="right" src="http://eos.io/wpimg/Diagram1.jpg" width="362.84px" height="500px" />
-
 ## Merkle Proofs for Light Client Validation (LCV)
 
 ## 경량화된 클라이언트 검증(LCV)을 위한 머클 증명 (Merkle Proofs for Light Client Validation)
 
 Integrating with other blockchains is much easier if clients do not need to process all transactions.  After all, an exchange only cares about transfers in and out of the exchange and nothing more.  It would also be ideal if the exchange chain could utilize lightweight merkle proofs of deposit rather than having to trust its own block producers entirely. At the very least a chain's block producers would like to maintain the smallest possible overhead when synchronizing with another blockchain.
 
+클라이언트가 모든 트랜잭션을 처리할 필요가 없을 때 블록체인들을 결합하는 것이 용이해집니다. 사실, 모든 거래소는 전체 블록체인 중 거래소의 입/출금에 대해서만 관리하면 됩니다. 교환 체인(exchange chain)의 입금 내역에 대한 경량화된 머클 증명을 이용하는 것은 블록 생산자 전체에 대한 신뢰성을 유지하는 것보다 이상적입니다. 적어도 해당 체인의 블록 생산자들은 다른 블록체인과 동기화를 위해 최소한의 연산 부담을 받길 원합니다.
+
 The goal of LCV is to enable the generation of relatively light-weight proof of existence that can be validated by anyone tracking a relatively light-weight data set. In this case the objective is  to prove that a particular transaction was included in a particular block and that the block is included in the verified history of a particular blockchain.  
+
+LCV(경량화된 클라이언트 검증)의 목표는 상대적 경량 데이터 집합을 보고 있는 누구던지 검증할 수 있는 상대적 경량 증명을 만들 수 있게 하는 것 입니다. 특정 트랜잭션이 어떤 블록에 포함되어 있고, 그 블록이 블록체인의 인증 이력(verified history)에 포함되어 있는지를 증명하는 것을 목표로 합니다.
 
 Bitcoin supports validation of transactions assuming all nodes have access to the full history of block headers which amounts to 4MB of block headers per year. At 10 transactions per second, a valid proof requires about 512 bytes. This works well for a blockchain with a 10 minute block interval, but is no longer "light" for blockchains with a 3 second block interval.  
  
+비트코인은 모든 노드가 블록 헤더에 기록된 4MB 가량의 모든 내역을 접근하는 것을 가정하고 트랜잭션의 검증을 수행합니다. 초당 10개의 트랜잭션이 발생할 경우, 유효한 증명(valid proof)은 512 바이트를 필요로 합니다. 10분의 블록 간격을 가지는 블록체인에서 이 방법은 사용 가능하지만, 3초의 블록 간격을 가지는 블록체인에게는 "경량"이 아닙니다.
+
 The EOS.IO software enables lightweight proofs for anyone who has any irreversible block header after the point in which the transaction was included. Using the hash-linked structure shown below it is possible to prove the existence of any transaction with a proof less than 1024 bytes in size.  If it is  assumed that validating nodes are keeping up with all block headers in the past day (2 MB of data), then proving these transactions will only require proofs 200 bytes long.
+
+EOS.IO 소프트웨어는 트랜잭션이 바뀌지 않는(irreversible) 블록 헤더에 포함된 이후, 해당 블록 헤더를 가진 누구나 경량 증명을 가능하게 합니다. 아래에 보이는 해쉬 연결 구조(hash-linked structure)를 이용하여 1024바이트 이하의 증명(proof)를 가지는 모든 트랜잭션에 대한 존재 증명(existance prove)이 가능합니다. 유효성 검사 노드가 지난 하루간(2MB의 데이터)의 모든 블록 헤더를 유지한다 가정하면, 트랜잭션의 검증을 위해서 200바이트의 증명이면 충분합니다.
+
+<img align="right" src="http://eos.io/wpimg/Diagram1.jpg" width="362.84px" height="500px" />
 
 There is little incremental overhead associated with producing blocks with the proper hash-linking to enable these proofs which means there is no reason not to generate blocks this way.
 
+경량 검증 방식을 도입하기 위해 적절한 해쉬-연결(hash-linking)이 포함된 블록을 생성하는 것의 추가 비용은 매우 적으므로, 이 방식으로 블록을 생성하지 않을 이유는 없습니다.
+
 When it comes time to validate proofs on other chains there are a wide variety of time/ space/ bandwidth optimizations that can be made. Tracking all block headers (420 MB/year) will keep proof sizes small.  Tracking only recent headers can offer a trade off between minimal long-term storage and proof size. Alternatively, a blockchain can use a lazy evaluation approach where it remembers intermediate hashes of past proofs. New proofs only have to include links to the known sparse tree. The exact approach used will necessarily depend upon the percentage of foreign blocks that include transactions referenced by merkle proof.  
 
+다른 체인에 속한 증명들을 검증할 경우 다양한 연산 시간/공간/대역폭 최적화가 가능합니다. 모든 블록 헤더(연간 420MB)의 추적(tracking)은 증명의 크기를 작게 유지하게 할 것입니다. 최근 발생한 헤더만 추적하는 것은 장기적 관점의 저장소 관리와 증명 크기 간의 트레이드 오프가 발생합니다. 대안으로, 블록체인은 과거 증명의 중간 해쉬를 기억하는 지연 평가(lazy evaluation) 방식을 사용할 수 있습니다. 새로운 증명는 이미 알려진 희소 트리(sparse tree)에 대한 링크를 포함하면 됩니다. 어떤 방식을 사용할지는 머클 증명을 참조하는 트랜잭션을 포함하는 외부 블록의 비율에 따라 결정됩니다.
+
 After a certain density of interconnectedness it becomes more efficient to simply have one chain contain the entire block history of another chain and eliminate the need for proofs all together. For performance reasons, it is ideal to minimize the frequency of inter-chain proofs.
+
+상호 연결이 일정 비율 이상 이루어진다면, 단순하게 다른 체인의 모든 블록 내역을 해당 체인이 가지게 하여 검증을 위해 두 체인을 볼 필요가 없게 하는 것이 효율적입니다. 성능 관점에서 체인 간 증명의 비율을 낮추는 것이 좋습니다.
 
 ## Latency of Interchain Communication
 
@@ -880,11 +894,15 @@ After a certain density of interconnectedness it becomes more efficient to simpl
 
 When communicating with another outside blockchain, block producers must wait until there is 100% certainty that a transaction has been irreversibly confirmed by the other blockchain before accepting it as a valid input. Using EOS.IO software and DPOS with 3 second blocks and 21 producers, this takes approximately 45 seconds.  If a chain's block producers do not wait for irreversibility it would be like an exchange accepting a deposit that was later reversed and could impact the validity of the a chain's consensus.
 
+외부의 다른 블록체인과 통신 할 때, 블록 생산자는 적합한 입력값으로 받아들이기 이전에 다른 블록체인에서 바뀌지 않는 확인 상태에 돌입하였음을 100% 확신할 때 까지 기다려야 합니다. EOS.IO 소프트웨어와 21명의 생산자와 3초 블록 생성 시간을 가지는 DPOS(지분 위임 증명; Delegated Proof-Of-Stake)를 이용할 때 약 45초가 걸립니다. 만약에 특정 체인의 블록 생산자가 바뀌지 않는 상태가 되는 것을 기다리지 않는다면 거래소에 취소한 입금 내역이 처리되는 것과 같은 일이 일어나며 체인의 합의 검증에 문제가 발생할 것입니다.
+
 ## Proof of Completeness
 
 ## 완전성 증명 (Proof of Completeness)
 
 When using merkle proofs from outside blockchains, there is a significant difference between knowing that all transactions processed are valid and knowing that no transactions have been skipped or omitted.  While it is impossible to prove that all of the most recent transactions are known, it is possible to prove that there have been no gaps in the transaction history.  The EOS.IO software facilitates this by assigning a sequence number to every message delivered to every account. A user can use these sequence numbers to prove that all messages intended for a particular account have been processed and that they were processed in order.
+
+블록체인 외부의 머클 증명을 사용할 때, 모든 트랜잭션이 수행 된 것을 확인하는 것과 무시하거나 빠진 트랜잭션이 없음을 확인하는 것은 상당한 차이가 있습니다. 최근의 모든 트랜잭션을 모두 알고 있음을 증명하기는 불가능하지만, 트랜잭션 내역의 빈틈(gap)이 없음을 증명하는 것은 가능합니다. EOS.IO는 모든 계정간 메시지 전달에 순서 번호를 부여하여 이를 가능하게 합니다. 사용자는 특정 계정에 대한 모든 메시지가 정상적으로 처리되었으며, 순서에 맞추어 처리되었음을 증명할 때 이러한 순서 번호를 사용할 수 잇습니다.
 
 # Conclusion
 
