@@ -6,7 +6,7 @@
 
 **Abstract:** The EOS.IO software introduces a new blockchain architecture designed to enable vertical and horizontal scaling of decentralized applications. This is achieved by creating an operating system-like construct upon which applications can be built. The software provides accounts, authentication, databases, asynchronous communication and the scheduling of applications across hundreds of CPU cores or clusters. The resulting technology is a blockchain architecture that scales to millions of transactions per second, eliminates user fees, and allows for quick and easy deployment of decentralized applications.
 
-**초록:** EOS.IO 소프트웨어는 탈중앙화 애플리케이션의 수직 및 수평 확장이 가능하도록 디자인된 새로운 블록체인 아키텍처를 선사합니다. 이는 애플리케이션을 구축할 수 있는 운영체제와 유사한 구조를 생성함으로 완성됩니다. 본 소프트웨어는 수백 개의 CPU 코어 또는 클러스터에 계정(accounts), 인증(authentication), 데이터베이스(databases), 비동기 통신(asynchronous communication), 애플리케이션 스케쥴링(application scheduling) 기능을 제공합니다. 결과기술은 초당 수백만 건의 트랜잭션 처리 능력을 갖춘 블록체인 아키텍처이며, 사용자의 추가 비용은 없을 것이며, 탈중앙화 애플리케이션의 빠르고 쉬운 구현을 가능하게 할 것입니다.
+**초록:** EOS.IO 소프트웨어는 탈중앙화 애플리케이션의 수직 및 수평 확장이 가능하도록 디자인된 새로운 블록체인 아키텍처를 소개합니다. 이는 애플리케이션을 구축할 수 있는 운영체제와 유사한 구조를 생성함으로 완성됩니다. 본 소프트웨어는 수백 개의 CPU 코어 또는 클러스터에 계정(accounts), 인증(authentication), 데이터베이스(databases), 비동기 통신(asynchronous communication), 애플리케이션 스케쥴링(application scheduling) 기능을 제공합니다. 그 결과 초당 수백만 건의 트랜잭션 처리 능력을 갖추면서도, 수수료가 없고, 빠르고 쉽게 애플리케이션을 개발할 수 있는 블록체인 아키텍처 기술이 탄생했습니다.
 
 Copyright © 2017 block.one
 
@@ -141,11 +141,11 @@ Blockchain technology was introduced in 2008 with the launch of the bitcoin curr
 
 While a number of blockchain platforms have struggled to support functional decentralized applications, application specific blockchains such as the BitShares decentralized exchange (2014) and Steem social media platform (2016) have become heavily used blockchains with tens of thousands of daily active users. They have achieved this by increasing performance to thousands of transactions per second, reducing latency to 1.5 seconds, eliminating fees, and providing a user experience similar to those currently provided by existing centralized services.
 
-다수의 블록체인 플랫폼은 기능성이 있는 탈중앙화 애플리케이션을 지원하기 위해 노력하였으며, BitShares 탈중앙화 거래소(2014) 및 Steem 소셜 미디어 플랫폼(2016)과 같은 애플리케이션 특화 블록체인은 수만 명의 일일 사용자를 포용하도록 성장하였습니다. 이는 초당 수천 건의 트랜잭션 지원과 1.5초의 지연시간과 같은 성능 향상, 사용 수수료의 제거, 현재 서비스되는 중앙 집중형 서비스와 유사한 수준의 사용자 경험 제공을 통해 가능하게 되었습니다.
+다수의 블록체인 플랫폼은 제대로 작동하는 탈중앙화 애플리케이션을 지원하기 위해 노력하는 동안, BitShares 탈중앙화 거래소(2014) 및 Steem 소셜 미디어 플랫폼(2016)과 같은 애플리케이션 특화 블록체인은 이미 수만 명의 일일 사용자를 가진 블록체인으로 성장하였습니다. 이는 초당 수천 건의 트랜잭션 지원과 1.5초의 지연시간과 같은 성능 향상, 사용 수수료의 제거, 현재 서비스되는 중앙 집중형 서비스와 유사한 수준의 사용자 경험 제공을 통해 가능하게 되었습니다.
 
 Existing blockchain platforms are burdened by large fees and limited computational capacity that prevent widespread blockchain adoption.
 
-현존하는 블록체인 플랫폼은 비싼 사용 수수료와 연산 능력의 한계로 블록체인의 광범위한 사용을 막고 있습니다.
+현존하는 블록체인 플랫폼들은 비싼 수수료와 연산능력의 한계 때문에 블록체인의 광범위한 사용에 있어서 어려움을 겪고 있습니다.
 
 # Requirements for Blockchain Applications
 
@@ -153,7 +153,7 @@ Existing blockchain platforms are burdened by large fees and limited computation
 
 In order to gain widespread use, applications on the blockchain require a platform that is flexible enough to meet the following requirements:
 
-블록체인 상의 애플리케이션이 대중적으로 사용되기 위해서는 다음의 요구사항을 만족하는 유연한 플랫폼을 갖춰야 합니다.
+블록체인 위에서 돌아가는 애플리케이션이 대중적으로 사용되기 위해서는 다음의 요구사항을 만족하는 유연한 플랫폼을 갖춰야 합니다.
 
 ## Support Millions of Users
 
@@ -161,7 +161,7 @@ In order to gain widespread use, applications on the blockchain require a platfo
 
 Disrupting businesses such as Ebay, Uber, AirBnB, and Facebook, require blockchain technology capable of handling tens of millions of active daily users.  In certain cases, applications may not work unless a critical mass of users is reached and therefore a platform that can handle mass number of users is paramount.
 
-Ebay, Uber, AirBnB, Facebook과 같은 기존 서비스와 경쟁력을 갖추기 위해서 수천만의 일일 활성 사용자를 수용할 수 있는 블록체인 기술이 필요합니다. 또, 많은 사용자가 이용하지 않는다면 작동하지 않는 애플리케이션도 있으므로 많은 사용자를 수용하는 플랫폼은 무엇보다 중요합니다.
+Ebay, Uber, AirBnB, Facebook과 같은 기존 서비스와 경쟁력을 갖추기 위해서 수천만의 일일 사용자를 수용할 수 있는 블록체인 기술이 필요합니다. 또한 많은 사용자가 이용하지 않을 경우 작동하지 않는 애플리케이션도 있으므로 많은 사용자를 수용하는 플랫폼은 무엇보다 중요합니다.
 
 
 ## Free Usage
@@ -178,11 +178,11 @@ Application developers need the flexibility to offer users free services; Users 
 
 Businesses building blockchain based applications need the flexibility to enhance their applications with new features.
 
-블록체인 기반 애플리케이션을 만드는 기업은 그들의 애플리케이션에 새로운 기능을 추가하여 향상할 수 있어야 합니다.
+블록체인 기반 애플리케이션을 만드는 기업은 그들의 애플리케이션에 새로운 기능을 추가하고 개선할 수 있어야 합니다.
 
 All non-trivial software is subject to bugs, even with the most rigorous of formal verification. The platform must be robust enough to fix bugs when they inevitably occur.
 
-많은 소프트웨어는 엄격한 공식검사를 진행함에도 버그가 발생합니다. 플랫폼은 애플리케이션에서 버그가 발생하였을 때 버그를 수정할 수 있을 만큼 안정적이어야 합니다.
+많은 소프트웨어들은 엄격한 공식적인 검사를 진행함에도 버그가 발생합니다. 플랫폼은 애플리케이션에서 버그가 발생하였을 때 버그를 수정할 수 있을 만큼 안정적이어야 합니다.
 
 ## Low Latency
 
@@ -190,7 +190,7 @@ All non-trivial software is subject to bugs, even with the most rigorous of form
 
 A good user experience demands reliable feedback with delay of no more than a few seconds. Longer delays frustrate users and make applications built on a blockchain less competitive with existing non-blockchain alternatives.
 
-좋은 사용자 경험은 수 초 이하의 지연으로 안정적인 피드백이 주어질 때 얻어집니다. 긴 지연 시간은 사용자의 불만을 일으키며, 이러한 블록체인 애플리케이션은 블록체인을 사용하지 않는 기성 시장의 애플리케이션에 비해 경쟁력이 떨어집니다.
+좋은 사용자 경험은 수 초 이하의 지연시간을 통한 안정적인 피드백을 필요로 합니다. 긴 지연 시간은 사용자의 불만을 일으키며, 이러한 블록체인 애플리케이션은 블록체인을 사용하지 않는 기성 시장의 애플리케이션에 비해 경쟁력이 떨어집니다.
 
 ## Sequential Performance
 
@@ -198,7 +198,7 @@ A good user experience demands reliable feedback with delay of no more than a fe
 
 There are some applications that just cannot be implemented with parallel algorithms due to sequentially dependent steps.  Applications such as exchanges need enough sequential performance to handle high volumes and therefore a platform with fast sequential performance is required.
 
-몇몇 애플리케이션은 순차적인 처리 단계를 거쳐야 하며, 이러면 병렬 알고리즘으로 구현할 수 없습니다. 거래소(exchange)와 같은 애플리케이션들은 많은 양의 거래를 순차적으로 처리하는 충분한 성능이 요구되므로, 플랫폼은 빠른 순차 처리 성능이 필요합니다.
+몇몇 애플리케이션은 순차적인 처리 단계를 거쳐야 하기 때문에 병렬 알고리즘으로 구현될 수 없습니다. 거래소(exchange)와 같은 애플리케이션들은 많은 양의 거래를 순차적으로 처리하는 충분한 성능을 요구하므로, 플랫폼은 빠른 순차 처리 성능이 필요합니다.
 
 ## Parallel Performance
 
@@ -216,75 +216,31 @@ EOS.IO software utilizes the only decentralized consensus algorithm capable of m
 
 EOS.IO 소프트웨어는 블록체인 애플리케이션의 성능 요구사항을 충족할 수 있는 유일한 탈중앙화 합의 알고리즘인 [지분 위임 증명(DPOS; Deleteged Proof-Of-Stake)](https://steemit.com/dpos/@dantheman/dpos-consensus-algorithm-this-missing-white-paper)을 사용합니다. 이 알고리즘은 다음과 같이 동작합니다.
 
-those who hold tokens on a blockchain may select block producers through a continuous approval voting system
+블록체인의 토큰을 보유한 사람은 상시 운영되는 투표 시스템을 통해 블록 생산자(block producer)를 선출하며, 누구나 블록 생산자로 참여할 수 있습니다. 블록을 생산할 기회는 다른 생산자들이 받은 전체 투표 수에 대한 본인이 받은 투표 수의 비율에 따라 결정됩니다. 프라이빗 블록체인에서 관리자는 토큰을 사용하여 IT 직원을 추가하거나 제거할 수 있습니다.
 
-1. 블록체인의 토큰을 보유한 사람은 상시 운영되는 후보 승인 투표 시스템을 이용하여 블록 생산자(block producer)를 선출합니다.
 
-anyone may choose to participate in block production 
+The EOS.IO software enables blocks to be produced exactly every 3 seconds and exactly one producer is authorized to produce a block at any given point in time. If the block is not produced at the scheduled time then the block for that time slot is skipped.  When one or more blocks are skipped, there is a 6 or more second gap in the blockchain. If the block is not produced at the scheduled time then the block for that time slot is skipped. When one or more blocks are skipped, there is a 6 or more second gap in the blockchain.
 
-2. 블록 생산자는 누구나 될 수 있습니다.
-
-will be given an opportunity to produce blocks proportional to the total votes they have received relative to all other producers
-
-3. 본인이 받은 투표수와 다른 생산자가 받은 전체 투표수의 비율에 비례하여 블록을 생산할 기회가 주어집니다.
-
-For private blockchains the management will use the tokens to add and remove IT staff.
-
-4. 프라이빗 블록체인에서 관리자는 토큰을 사용하여 IT 직원을 추가하거나 제거할 수 있습니다.
-
-The EOS.IO software enables blocks to be produced exactly every 3 seconds and exactly one producer is authorized to produce a block at any given point in time. If the block is not produced at the scheduled time then the block for that time slot is skipped.  When one or more blocks are skipped, there is a 6 or more second gap in the blockchain.
-
-The EOS.IO software enables blocks to be produced exactly every 3 seconds
-
-4. EOS.IO 소프트웨어는 정확히 3초마다 블록을 생산될 수 있게 합니다.
-
-exactly one producer is authorized to produce a block at any given point in time.
-
-5. 시점마다 오직 한 명의 블록 생산자만이 블록을 생성하도록 허가됩니다.
-
-If the block is not produced at the scheduled time then the block for that time slot is skipped. When one or more blocks are skipped, there is a 6 or more second gap in the blockchain.
-
-6. 만약 정해진 시간에 블록이 생산되지 않을 경우 해당 시점의 블록은 무시됩니다. 1개 혹은 그 이상의 블록이 무시될 경우 블록체인에는 6초 혹은 그 이상의 간격(gap)이 나타납니다.
+EOS.IO 소프트웨어는 정확히 3초마다 블록이 만들어질 수 있게 하며, 각 시점마다 오직 한 명의 블록 생산자만이 블록을 생성할 수 있습니다. 만약 정해진 시간에 블록이 생산되지 않을 경우 해당 시점의 블록은 무시됩니다. 1개 혹은 그 이상의 블록이 무시될 경우 블록체인에는 6초 혹은 그 이상의 간격(gap)이 나타납니다.
 
 Using the EOS.IO software blocks are produced in rounds of 21. At the start of each round 21 unique block producers are chosen. The top 20 by total approval are automatically chosen every round and the last producer is chosen proportional to their number of votes relative to other producers. The selected producers are shuffled using a pseudorandom number derived from the block time.  This shuffling is done to ensure that all producers maintain balanced connectivity to all other producers.
 
 Using the EOS.IO software blocks are produced in rounds of 21.
 
-8. EOS.IO 소프트웨어를 이용하여 블록들은 21번의 단계로 구성되는 라운드로 생성됩니다.
+EOS.IO 소프트웨어를 이용하여 블록들은 21번의 단계로 구성되는 라운드로 생성되며, 각 라운드가 시작될 때 21명의 블록 생산자가 정해집니다. 라운드마다  많은 득표를 받은 상위 20명의 블록 생산자가 자동으로 배정되며, 마지막 생산자는 다른 생산자와의 상대적인 투표수에 비례하여 선출됩니다.
 
-At the start of each round 21 unique block producers are chosen.
+The selected producers are shuffled using a pseudorandom number derived from the block time. This shuffling is done to ensure that all producers maintain balanced connectivity to all other producers.
 
-9. 라운드의 시작에 21명의 블록 생산자가 선출됩니다.
-
-The top 20 by total approval are automatically chosen every round and the last producer is chosen proportional to their number of votes relative to other producers.
-
-10. 라운드마다 총 승인 횟수 상위 20명이 자동으로 배정되며, 마지막 생산자는 다른 생산자와의 관련 투표수에 비례하여 선출됩니다.
-
-The selected producers are shuffled using a pseudorandom number derived from the block time.
-
-11. 블록 시간으로 유도되는 의사 난수(pseudorandom number)에 따라 선출된 생산자들의 블록 생성 순서를 랜덤하게 섞습니다.
-
-This shuffling is done to ensure that all producers maintain balanced connectivity to all other producers.
-
-12. 블록 생성 순서 섞기는 모든 생산자가 다른 생산자들과 균형적인 연결(balanced connectivity)을 유지하도록 진행합니다.
+블록 시간으로 유도되는 의사 난수(pseudorandom number)에 따라 선출된 생산자들의 블록 생성 순서를 랜덤하게 섞습니다. 블록 생성 순서를 섞는 것은 모든 생산자가 다른 생산자들과 균형적인 연결(balanced connectivity)을 유지하도록 진행합니다.
 
 If a producer misses a block and has not produced any block within the last 24 hours they are removed from consideration until they notify the blockchain of their intention to start producing blocks again. This ensures the network operates smoothly by minimizing the number of blocks missed by not scheduling those who are proven to be unreliable.
 
-13. 생산자가 블록 생성에 실패하고 지난 24시간 동안 어떠한 블록을 생성하지 않는다면, 블록체인에 블록 생성 참여 의사를 알려주기 전까지 후보군에서 제외됩니다. 신뢰할 수 없는 사람을 참가시키지 않으므로 놓치는 블록의 수를 최소화하고 네트워크가 원활하게 동작하도록 보장합니다.
+생산자가 블록 생성에 실패하고 지난 24시간 동안 어떠한 블록을 생성하지 않는다면, 블록체인에 블록 생성 참여 의사를 알려주기 전까지 후보군에서 제외됩니다. 신뢰할 수 없는 사람을 참가시키지 않으므로 놓치는 블록의 수를 최소화하고 네트워크가 원활하게 동작하도록 보장합니다.
 
 Under normal conditions a DPOS blockchain does not experience any forks because the block producers cooperate to produce blocks rather than compete.  In the event there is a fork, consensus will automatically switch to the longest chain. This metric works because the rate at which blocks are added to a blockchain chain fork is directly correlated to the percentage of block producers that share the same consensus. In other words, a blockchain fork with more producers on it will grow in length faster than one with fewer producers.  Furthermore, no block producer should be producing blocks on two forks at the same time. If a block producer is caught doing this then such block producer will likely be voted out. Cryptographic evidence of such double-production may also be used to automatically remove abusers.
 
-Under normal conditions a DPOS blockchain does not experience any forks because the block producers cooperate to produce blocks rather than compete.
+일반적인 상황에서 지분 위임 증명(DPOS) 알고리즘을 사용하는 블록체인은 어떠한 포크(fork)도 일어나지 않습니다. 이는 블록 생성자가 경쟁이 아닌 협력을 하기 때문입니다. 포크가 일어난 경우, 합의 알고리즘은 자동으로 가장 긴 블록 체인(chain)을 선택합니다. 이 방법이 동작하는 이유는, 특정 블록체인 포크에 블록들이 추가되는 속도는 같은 합의를 공유하는 블록 생성자의 비율과 직접 연관되기 때문입니다. 다수의 생산자 존재하는 블록체인 포크는 적은 생산자를 가진 것에 비하여 빠르게 증가합니다. 추가로, 어떠한 블록 생성자도 동시에 두 개의 포크에 블록을 생성할 수 없습니다. 이러한 경우가 적발될 경우 해당 블록 생성자는 탄핵당할 것입니다. 이러한 이중 생산에 대한 암호학적 증거(cryptographic evidence)는 정당하지 않은 방법으로 이득을 취한 사람을 자동으로 제거하는 데 사용될 수 있습니다.
 
-14. 일반적인 상황에서 지분 위임 증명(DPOS) 알고리즘을 사용하는 블록체인은 어떠한 포크(fork)도 일어나지 않습니다. 이는 블록 생성자가 경쟁이 아닌 협조를 하기 때문입니다.
-
-In the event there is a fork, consensus will automatically switch to the longest chain. This metric works because the rate at which blocks are added to a blockchain chain fork is directly correlated to the percentage of block producers that share the same consensus. In other words, a blockchain fork with more producers on it will grow in length faster than one with fewer producers.
-
-15. 포크가 일어난 경우, 합의 알고리즘은 자동으로 가장 긴 블록 체인(chain)을 선택합니다. 이 방법이 동작하는 이유는, 특정 블록체인 포크에 블록들이 추가되는 속도는 같은 합의를 공유하는 블록 생성자의 비율과 직접 연관되기 때문입니다. 다수의 생산자가 합의하는 블록체인 포크는 적은 생산자를 가진 것에 비하여 빠르게 커집니다.
-
-Furthermore, no block producer should be producing blocks on two forks at the same time. If a block producer is caught doing this then such block producer will likely be voted out. Cryptographic evidence of such double-production may also be used to automatically remove abusers.
-
-16. 어떠한 블록 생성자도 동시에 두 개의 포크에 블록을 생성할 수 없습니다. 이러한 경우가 적발될 경우 해당 블록 생성자는 탄핵당할 것입니다. 이러한 이중 생산에 대한 암호학적 증거(cryptographic evidence)는 정당하지 않은 방법으로 이득을 취한 사람을 자동으로 제거하는 데 사용될 수 있습니다.
 
 ## Transaction Confirmation
 
@@ -292,7 +248,7 @@ Furthermore, no block producer should be producing blocks on two forks at the sa
 
 Typical DPOS blockchains have 100% block producer participation. A transaction can be considered confirmed with 99.9% certainty after an average of 1.5 seconds from time of broadcast.
 
-일반적인 DPOS 블록체인은 100%의 블록 생산자 참여율을 가집니다. 전파(braodcasting) 시간부터 1.5초의 시간이 흐르면 트랜잭션은 99.9%의 신뢰도로 확인(confirm)되었다 판단할 수 있습니다.
+일반적인 DPOS 블록체인은 100%의 블록 생산자 참여율을 가집니다. 전파(braodcasting) 시간부터 평균 1.5초의 시간이 흐르면 트랜잭션은 99.9%의 신뢰도로 확인(confirm)되었다 판단할 수 있습니다.
 
 There are some extraordinary cases where a software bug, Internet congestion, or a malicious block producer will create two or more forks. For absolute certainty that a transaction is irreversible, a node may choose to wait for confirmation by 15 out of the 21 block producers.  Based on a typical configuration of the EOS.IO software, this will take an average of 45 seconds under normal circumstances. By default all nodes will consider a block confirmed by 15 of 21 producers irreversible and will not switch to a fork that excludes such a block regardless of length.
 
@@ -332,7 +288,7 @@ Over time all users end up directly confirming the blockchain which makes it dif
 
 The EOS.IO software permits all accounts to be referenced by a unique human readable name of 2 to 32 characters in length. The name is chosen by the creator of the account.  All accounts must be funded with the minimal account balance at the time they are created to cover the cost of storing account data.  Account names also support namespaces such that the owner of account @domain is the only one who can create the account @user.domain.
 
-EOS.IO 소프트웨어는 모든 계정이 2~32글자의 읽을 수 있는 고유 이름으로 참조되도록 합니다. 계정 이름은 생성자가 선택합니다. 모든 계정은 만들어지는 시점에 계정 정보를 담는 저장 비용을 초과하는 잔액을 보유해야 합니다. 계정 이름은 네임스페이스 지원하며, @domain 계정의 소유자만이 @user.domain을 생성할 수 있도록 합니다.
+EOS.IO 소프트웨어는 모든 계정이 2~32글자의 읽을 수 있는 고유 이름으로 참조되도록 합니다. 계정 이름은 생성자가 선택합니다. 모든 계정은 생성되는 시점에 계정 정보를 담는 저장 비용을 초과하는 잔액을 보유해야 합니다. 계정 이름은 네임스페이스를 지원합니다. 예를 들어, @domain 계정의 소유자만이 @user.domain을 생성할 수 있도록 합니다.
 
 In a decentralized context, application developers will pay the nominal cost of account creation to sign up a new user. Traditional businesses already spend significant sums of money per customer they acquire in the form of advertizing, free services, etc. The cost of funding a new blockchain account should be insignificant in comparison. Fortunately, there is no need to create accounts for users already signed up by another application.   
 
@@ -360,7 +316,7 @@ It is critical that authentication and permission management be standardized and
 
 Every account may be controlled by any weighted combination of other accounts and private keys. This creates a hierarchical authority structure that reflects how permissions are organized in reality, and makes multi-user control over funds easier than ever. Multi-user control is the single biggest contributor to security, and, when used properly, it can greatly eliminate the risk of theft due to hacking.
 
-모든 계정은 다른 계정들(other accounts)과 개인키들(private keys)의 가중치 조합(weighted combination)으로 제어될 수 있습니다. 이를 통해 현실의 권한 구성 방식과 유사한 위계적 인증 구조(hierarchical authority structure)를 생성할 수 있으며, 또한 기금(funds)에 대한 복수 매니저 운용(multi-user control)을 보다 쉽게 하도록 합니다. 복수 매니저 운용은 보안 관점에서 큰 의의가 있으며, 이를 올바르게 사용할 경우 해킹으로 인한 도난의 위험을 큰폭으로 감소시킬 수 있습니다.
+모든 계정은 다른 계정들(other accounts)과 개인키들(private keys)의 가중치 조합(weighted combination)으로 제어될 수 있습니다. 이를 통해 현실의 권한 구성 방식과 유사한 위계적 인증 구조(hierarchical authority structure)를 생성할 수 있으며, 또한 기금(funds)에 대한 다중 사용자 제어(multi-user control)를 보다 쉽게 하도록 합니다. 다중 사용자 제어는 보안 관점에서 큰 의의가 있으며, 이를 올바르게 사용할 경우 해킹으로 인한 도난의 위험을 큰폭으로 감소시킬 수 있습니다.
 
 EOS.IO software allows accounts can define what combination of keys and/or other accounts can send a particular message type to another account.  For example, it is possible to have one key for a user's social media account and another for access to the exchange.  It is even possible to give other accounts permission to act on behalf of a user's account without  assigning them keys.  
 
@@ -378,7 +334,7 @@ EOS.IO 소프트웨어를 이용하여 계정은 상위 명명된 권한 수준�
 
 Another example is the Steem blockchain which has three hard-coded named permission levels: owner, active, and posting. The posting permission can only perform social actions such as voting and posting, while the active permission can do everything except change the owner.  The owner permission is meant for cold storage and is able to do everything.  EOS.IO generalizes this concept by allowing each account holder to define their own hierarchy as well as the grouping of actions.
 
-다른 예제로서 steem 블록체인이 있으며, 여기에는 3가지 하드 코딩된 명명된 권한 수준을 가지고 있습니다. 소유자(owner), 활동(active), 포스팅(posting) 입니다. 포스팅 권한은 투표나 글쓰기와 같은 소셜 활동을 할 수 있으며, 활동 권한은 소유자 변경 외 모든 활동이 가능합니다. 소유자(owner) 권한은 콜드 스토리지(cold storage)를 의미하며 모든 활동이 가능합니다. EOS.IO는 steem의 개념을 일반화하여 각각의 계정 소유주가 활동 그룹을 포함하는 독자적인 위계(hierarchy)를 정의할 수 있도록 합니다.
+다른 예제로서 Steem 블록체인이 있으며, 여기에는 3가지 하드 코딩된 명명된 권한 수준을 가지고 있습니다. 소유자(owner), 활동(active), 포스팅(posting) 입니다. 포스팅 권한은 투표나 글쓰기와 같은 소셜 활동을 할 수 있으며, 활동 권한은 소유자 변경 외 모든 활동이 가능합니다. 소유자(owner) 권한은 콜드 스토리지(cold storage)를 의미하며 모든 활동이 가능합니다. EOS.IO는 steem의 개념을 일반화하여 각각의 계정 소유주가 활동 그룹을 포함하는 독자적인 위계(hierarchy)를 정의할 수 있도록 합니다.
 
 ### Named Message Handler Groups
 
