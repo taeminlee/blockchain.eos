@@ -27,7 +27,7 @@ Without permission, anyone may use, reproduce or distribute any material in this
 - [Requirements for Blockchain Applications](#requirements-for-blockchain-applications)
 - [블록체인 애플리케이션의 요구사항 (Requirements for Blockchain Application)](#블록체인-애플리케이션의-요구사항-requirements-for-blockchain-application)
     - [Support Millions of Users](#support-millions-of-users)
-    - [1. 수백만의 사용자 허용 (Support Millions of Users)](#1-수백만의-사용자-허용-support-millions-of-users)
+    - [1. 수백만의 사용자 지원 (Support Millions of Users)](#1-수백만의-사용자-지원-support-millions-of-users)
     - [Free Usage](#free-usage)
     - [2. 무료 사용 (Free Usage)](#2-무료-사용-free-usage)
     - [Easy Upgrades and Bug Recovery](#easy-upgrades-and-bug-recovery)
@@ -157,7 +157,7 @@ In order to gain widespread use, applications on the blockchain require a platfo
 
 ## Support Millions of Users
 
-## 1. 수백만의 사용자 허용 (Support Millions of Users)
+## 1. 수백만의 사용자  (Support Millions of Users)
 
 Disrupting businesses such as Ebay, Uber, AirBnB, and Facebook, require blockchain technology capable of handling tens of millions of active daily users.  In certain cases, applications may not work unless a critical mass of users is reached and therefore a platform that can handle mass number of users is paramount.
 
