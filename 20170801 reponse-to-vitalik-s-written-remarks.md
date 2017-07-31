@@ -1,6 +1,6 @@
 # 비탈릭의 비평에 대한 회신 (Reponse to Vitalik's Written Remarks)
 
-방금 전 [비탈릭이 레딧에 쓴 게시글 (영문)]((https://np.reddit.com/r/ethereum/comments/6qm0y2/is_the_ethereum_team_defending_their_ground/dkyk94c/))을 보았습니다.
+방금 전 [비탈릭이 레딧에 쓴 게시글 (영문)](https://np.reddit.com/r/ethereum/comments/6qm0y2/is_the_ethereum_team_defending_their_ground/dkyk94c/)을 보았습니다.
 
 비탈릭은 수수료와 투표에 대한 문제제기를 하였습니다. 두 가지 문제 모두 고려할 가치가 있다고 느껴집니다.
 
